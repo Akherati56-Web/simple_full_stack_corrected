@@ -32,7 +32,7 @@ class LoginController extends Controller
         $user_id = $user['id'];
         $data = $request->user()->tokenCan('server');
 
-        return 'test api auth'  . $data ;
+        return ['can_edit' => $data  , 'user_id' => $user_id , 'user_email' => $user['email']];
     }
 
     public function signup(Request $request) {
