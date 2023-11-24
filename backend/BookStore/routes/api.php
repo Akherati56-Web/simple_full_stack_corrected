@@ -22,12 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::resource('/book', BookController::class);
-
-Route::post('/tokens/create', function (Request $request) {
-    $user = User::get()->find(1);
-    return $user->createToken('token-name', ['server:update'])->plainTextToken;
-});
-
-Route::post('/login', [LoginController::class, 'index'] );
+ 
+Route::post('/login', [LoginController::class, 'index']);
 
 Route::post('/test', [LoginController::class, 'test'])->middleware(['auth:sanctum']);
+
+Route::post('/signup', [LoginController::class, 'signup']);
