@@ -1,9 +1,8 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BookController;
 
 /*
@@ -24,8 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('/book', BookController::class);
  
-Route::post('/login', [LoginController::class, 'index']);
+Route::post('/signup', [UserController::class, 'signup']);
+Route::post('/login', [UserController::class, 'login']);
 
-Route::post('/test', [LoginController::class, 'test'])->middleware(['auth:sanctum']);
-
-Route::post('/signup', [LoginController::class, 'signup']);
+Route::post('/test', [UserController::class, 'test'])->middleware(['auth:sanctum']);
