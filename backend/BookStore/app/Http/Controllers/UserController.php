@@ -5,49 +5,64 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function signup(Request $request) {
-        
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param array $data
+     * @return \App\Models\User
+     */
+    public function signup(Request $request)
+    {
+
+        // Validate the incoming request data
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        $user = new User();
-
-        $user->name = $credentials['email']; 
-        
-        $user->fill($request->only('email', 'password'))->save();
-
-        $user->save();
-
-
-        return User::create($user);
+        // Return the created user instance
+        return User::create([
+            'name' => 'name',
+            'email' => $credentials['email'],
+            'password' => Hash::make($credentials['password'])
+        ]);
     }
 
-    public function login(Request $request){
- 
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
- 
-        if (Auth::attempt($credentials)) {
-            $user = $request->user();
-            $user = User::get()->find($user['id']);
-            return $user->createToken('test', ['server'])->plainTextToken;  
+    /**
+     * Authenticate a user and return a token.
+     *
+     * @param array $data
+     * @return \Illuminate\Http\Response
+     */
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        if (!Auth::once($credentials)) {
+            return 'wrong';
         }
-        return 'wrong credentials';
+        return Auth::getUser()->createToken('test', ['server'])->plainTextToken;
     }
 
-    public function test(Request $request){
+    /**
+     * Test the authenticated user's token.
+     *
+     * @param array $data
+     * @return \Illuminate\Http\Response
+     */
+    public function test(Request $request)
+    {
+        // Get the authenticated user
         $user = $request->user();
+        // Get the user's ID
         $user_id = $user['id'];
+        // Check if the user's token has the 'server' scope
         $data = $user->tokenCan('server');
 
-        return ['can_edit' => $data  , 'user_id' => $user_id , 'user_email' => $user['email']];
+        // Return an array containing the user's ID, email, and whether their token has the 'server' scope
+        return ['can_edit' => $data, 'user_id' => $user_id, 'user_email' => $user['email']];
     }
 }
-

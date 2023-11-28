@@ -20,10 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+// Route for book resource
 Route::resource('/book', BookController::class);
- 
+
+// Routes for user signup and login
 Route::post('/signup', [UserController::class, 'signup']);
 Route::post('/login', [UserController::class, 'login']);
 
+// Route for testing authentication
 Route::post('/test', [UserController::class, 'test'])->middleware(['auth:sanctum']);

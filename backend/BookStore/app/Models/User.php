@@ -73,12 +73,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class, 'user_id');
     }
-
-    public function setPasswordAttribute($value)
-    {
-        # $this->attributes['password'] = Hash::make($this->attributes['password']);
-        # it seems that laravel build in libraries had handle this !
-        return;
-    }
-
 }
