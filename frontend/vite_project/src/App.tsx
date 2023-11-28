@@ -1,22 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+ 
+import About from './Components/views/Home/About';
+import Content from './Components/views/Home/Content';
+import Home from './Components/views/Home/Home' 
+import Layout from './Components/views/Home/Layout';
+import './style.scss'; 
+ 
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 
-import Header from './Components/views/Helper/header'
-import Home from './Components/views/Home/Home'
-import Footer from './Components/views/Helper/Footer'
-
-import './style.scss';
-import $ from 'jquery';
-
-function App() {
+export default function App() {
   return (
-    <>
-    <Header />
-    <Home />
-    <Footer/>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="content" element={<Content />} /> 
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);

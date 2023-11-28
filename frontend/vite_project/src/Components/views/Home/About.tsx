@@ -5,14 +5,15 @@ import SideMenu from './SideMenu';
 import Header from '../Helper/header';
 import Footer from '../Helper/Footer';
 
-function Home() {
+function About() {
     return (
         <> 
 
         <Header />
             <div className="container-fluid">
                 <div className="row flex-nowrap">
-                <SideMenu/> 
+                <SideMenu/>
+                <Content/>
                 
                 
 
@@ -25,4 +26,4 @@ function Home() {
 }
 
 
-export default Home
+export default About

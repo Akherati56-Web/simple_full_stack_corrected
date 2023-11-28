@@ -26,7 +26,7 @@ function API() {
           <> 
 
           <Cards
-          id = {item.user_id}
+          id = {item.id}
           />
           </>
         )

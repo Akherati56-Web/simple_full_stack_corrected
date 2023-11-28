@@ -15,8 +15,8 @@ return (
          
         <LoginForm/>
         <SignUpForm/>
-        {/* <API />  */}
-        {/* <Post /> */}
+        <API /> 
+        <Post />
     </div>
 )
 }

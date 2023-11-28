@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-function Cards() { 
+function Cards(id) { 
     return (
         <div className="col-4">
         <div className="card m-1" >
@@ -19,7 +19,7 @@ function Cards() {
             </ul>
             <div className="card-body">
                 <a href="#" className="card-link">
-                Card link
+                Card link 
                 </a>
                 <a href="#" className="card-link">
                 Another link

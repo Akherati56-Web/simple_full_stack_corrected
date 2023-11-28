@@ -14,7 +14,7 @@ class BookController extends Controller
     public function index()
     {
         return [
-            'status' => 400, 
+            'status' => 400,
             'data' => Response::json(Book::get())
         ];
     }
@@ -36,7 +36,7 @@ class BookController extends Controller
             'name' => 'nullable',
             'title' => 'nullable',
         ]);
- 
+
         $book = Book::create($request->all());
         return [
             "status" => 400,
@@ -69,7 +69,7 @@ class BookController extends Controller
             'name' => 'nullable',
             'title' => 'nullable',
         ]);
- 
+
         $book = $book->update($request->all());
         return [
             "status" => 400,
