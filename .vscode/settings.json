@@ -1,11 +1,5 @@
 {
   "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    "**/Thumbs.db": true,
     "**/__pycache__": true,
     "**/.cache": true,
     "**/.coverage": true,
@@ -58,10 +52,11 @@
     "frontend/vite_project/src/assets": true,
     "backend/BookStore/bootstrap": true,
     "server": true,
-    "frontend/vite_project/index.html": true,
-    "frontend/.vscode": true
+    "frontend/vite_project/index.html": true
   },
-  "hide-files.files": [
-    "frontend/.vscode"
-  ]
+  "hide-files.files": [],
+  "editor.tokenColorCustomizations": {
+    "comments": "",
+    "textMateRules": []
+  }
 }

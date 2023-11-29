@@ -41,10 +41,23 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-        if (!Auth::once($credentials)) {
-            return 'wrong';
+        // return $credentials;
+        if (!Auth::attempt($credentials)) {
+            return ['wrong'];
+        }
+        if (Auth::getUser()->tokens()->get()->first()) {
+            return ['you are logged in'];
         }
         return Auth::getUser()->createToken('test', ['server'])->plainTextToken;
+    }
+
+
+    public function logout(Request $request)
+    {
+        Auth::user()->tokens()->delete();
+
+        return 'log out';
+
     }
 
     /**

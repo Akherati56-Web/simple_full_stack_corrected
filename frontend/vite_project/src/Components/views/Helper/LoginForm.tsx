@@ -21,9 +21,14 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const baseURL = "http://localhost:8000/api/login";
-    const token = localStorage.getItem('api-token');
+    const token = localStorage.getItem('api-token')
 
-    if (token != null) {
+
+    console.log(token)
+
+    if (token) {
+      console.log('true')
+
       const config = {
         headers: { Authorization: `Bearer ${token}` }
       };
@@ -36,17 +41,23 @@ const LoginForm = () => {
         baseURL,
         bodyParameters,
         config
-      ).then(console.log).catch(console.log);
+      ).then((response) => {
+        console.log(response);
+      }).catch(console.log);
+
     }
     else {
+      console.log('false')
       axios.post(baseURL, {
         email: formData.email,
         password: formData.password
       }).then((response) => {
-        console.log(response.data);
         localStorage.setItem('api-token', response.data);
       });
+
     }
+
+
 
   };
 
@@ -68,7 +79,7 @@ const LoginForm = () => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="pwd" className="form-label">Password:</label>
-                  <input type="password" className="form-control" placeholder="Enter password" name="pswd" value={formData.password} onChange={handleChange} />
+                  <input type="password" className="form-control" placeholder="Enter password" name="password" value={formData.password} onChange={handleChange} />
                 </div>
                 <div className="form-check mb-3">
                   <label className="form-check-label">

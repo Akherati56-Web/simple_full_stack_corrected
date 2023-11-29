@@ -26,6 +26,7 @@ Route::resource('/book', BookController::class);
 // Routes for user signup and login
 Route::post('/signup', [UserController::class, 'signup']);
 Route::post('/login', [UserController::class, 'login']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware(['auth:sanctum']);
 
 // Route for testing authentication
 Route::post('/test', [UserController::class, 'test'])->middleware(['auth:sanctum']);
