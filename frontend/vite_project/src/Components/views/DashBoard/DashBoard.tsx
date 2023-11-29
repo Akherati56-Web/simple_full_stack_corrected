@@ -1,9 +1,9 @@
-import $ from 'jquery'; 
+import $ from 'jquery';
 
 function DashBoard() {
     return (
-        <> 
-        DashBoard
+        <>
+            DashBoard
         </>
     )
 }

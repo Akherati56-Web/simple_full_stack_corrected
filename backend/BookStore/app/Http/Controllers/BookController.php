@@ -15,7 +15,7 @@ class BookController extends Controller
     {
         return [
             'status' => 400,
-            'data' => Response::json(Book::get())
+            'data' => Response::json(Book::paginate(15))
         ];
     }
 
