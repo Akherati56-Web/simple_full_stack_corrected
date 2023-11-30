@@ -11,7 +11,7 @@ services:
     working_dir: /vite_project
     volumes:
       - type: bind
-        source: ./frontend/react
+        source: ./frontend/vite_project
         target: /vite_project
 
   nginx_react:
