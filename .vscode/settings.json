@@ -51,7 +51,6 @@
     "frontend/vite_project/src/App.css": true,
     "frontend/vite_project/src/assets": true,
     "backend/BookStore/bootstrap": true,
-    "server": true,
     "frontend/vite_project/index.html": true
   },
   "hide-files.files": [],

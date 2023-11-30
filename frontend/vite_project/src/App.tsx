@@ -1,11 +1,8 @@
- 
-import About from './Components/views/Home/About';
 import Content from './Components/views/Home/Content';
 import Home from './Components/views/Home/Home' 
 import Layout from './Components/views/Home/Layout';
 import './style.scss'; 
  
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 
 export default function App() {
@@ -21,5 +18,7 @@ export default function App() {
   );
 }
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<App />);
+/* 
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<App />);
+ */

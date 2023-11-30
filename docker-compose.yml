@@ -1,19 +1,9 @@
 version: '3.8'
 services:
-  backend:
-    container_name: php
-    build:
-        context: ./backend
-        dockerfile: Dockerfile
-    volumes:
-      - ./backend/BookStore:/var/wwww/html
-    ports:
-      - '8000:80'
-    
   frontend:
     container_name: node
     build:
-        context: ./frontend
+        context: ./docker/node
         dockerfile: Dockerfile
     volumes:
       - ./frontend/vite_project:/vite_project
@@ -30,7 +20,6 @@ services:
     ports:
       - "3309:3306" 
     
-  
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -40,13 +29,7 @@ services:
       PMA_HOST: database
     depends_on:
       - database 
-
-  server:
-    container_name: nginx
-    build:
-        context: ./server
-        dockerfile: Dockerfile
-
+ 
   navicat:
     image: navicat/navicatmonitor:3.0.1
     ports:
@@ -55,3 +38,31 @@ services:
       - database
     network_mode: "host"
     
+  server:
+    container_name: nginx
+    build: ./docker/nginx
+    command: nginx -g "daemon off;"
+    links:
+      - backend
+    ports:
+      - "80:80"
+    volumes:
+      - ./logs/nginx:/var/log/nginx
+      - ./backend/BookStore:/var/www/html/BookStore
+      
+  backend:
+    container_name: php
+    build: ./docker/php
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./backend/BookStore:/var/www/html/BookStore
+    working_dir: /var/www/html/BookStore
+
+  composer:
+    container_name: composer
+    image: composer/composer
+    volumes:
+      - ./backend/BookStore:/var/www/html/BookStore
+    working_dir: /var/www/html/BookStore
+    command: install
