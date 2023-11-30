@@ -1,12 +1,30 @@
 version: '3.8'
 services:
   frontend:
-    container_name: node
+    image: node:alpine
+    container_name: frontend
     build:
-        context: ./docker/node
-        dockerfile: Dockerfile
+      context: ./docker/node/
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    working_dir: /vite_project
     volumes:
-      - ./frontend/vite_project:/vite_project
+      - type: bind
+        source: ./frontend/react
+        target: /vite_project
+
+  nginx_react:
+    container_name: nginx_react
+    build: ./docker/nginx_react
+    command: nginx -g "daemon off;"
+    links:
+      - frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ./logs/nginx_react:/var/log/nginx
+      - ./frontend/vite_project:/var/www/html/vite_project
     
   database:
     container_name: mysql
@@ -45,7 +63,7 @@ services:
     links:
       - backend
     ports:
-      - "80:80"
+      - "81:80"
     volumes:
       - ./logs/nginx:/var/log/nginx
       - ./backend/BookStore:/var/www/html/BookStore
@@ -66,3 +84,4 @@ services:
       - ./backend/BookStore:/var/www/html/BookStore
     working_dir: /var/www/html/BookStore
     command: install
+

@@ -9,7 +9,7 @@ RUN apt-get install -y autoconf pkg-config libssl-dev
 RUN docker-php-ext-install bcmath mbstring intl opcache
 
 RUN apt install -y g++ libpq-dev zlib1g-dev
- 
+
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
-  
+
 RUN docker-php-ext-install pdo pdo_mysql
