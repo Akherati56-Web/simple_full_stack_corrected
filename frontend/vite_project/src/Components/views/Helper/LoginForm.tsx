@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import config from '../../../config.json'
 
 const LoginForm = () => {
 
@@ -20,7 +21,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const baseURL = "http://localhost:8000/api/login";
+    const baseURL = config.server + "/api/login";
     const token = localStorage.getItem('api-token')
 
 
