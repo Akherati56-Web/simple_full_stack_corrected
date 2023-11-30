@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import config from '../../../config.json'
 
 const SignUpForm = () => {
 
@@ -20,7 +21,7 @@ const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const baseURL = "http://localhost:8000/api/signup";
+    const baseURL = config.server + "/api/signup";
 
     axios.post(baseURL, {
       email: formData.email,

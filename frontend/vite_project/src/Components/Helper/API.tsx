@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import Cards from '../views/Helper/Cards';
+import config from '../../config.json'
+
 
 function API() {
   const [posts, setPosts] = useState(null);
-  const URL = 'http://localhost:8000/api/book';
+  console.log(config.server)
+  const URL = config.server + '/api/book';
 
 
   useEffect(() => {
