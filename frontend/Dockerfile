@@ -6,7 +6,7 @@ COPY ./vite_project/package.json /vite_project
 
 RUN node --version
 
-RUN npm install
+#RUN npm install
 
 COPY ./vite_project /vite_project
 

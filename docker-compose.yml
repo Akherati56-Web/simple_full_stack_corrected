@@ -1,7 +1,6 @@
 version: "3.8"
 services:
   frontend:
-    image: node:18
     container_name: frontend
     build:
       context: ./frontend
@@ -9,10 +8,6 @@ services:
     ports:
       - 8000:3000
     working_dir: /vite_project
-    volumes:
-      - type: bind
-        source: ./frontend/vite_project
-        target: /vite_project
 
   nginx_react:
     container_name: nginx_react
