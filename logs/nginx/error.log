@@ -471,3 +471,13 @@
 2023/11/30 14:36:51 [notice] 1#1: signal 17 (SIGCHLD) received from 97
 2023/11/30 14:36:51 [notice] 1#1: worker process 97 exited with code 0
 2023/11/30 14:36:51 [notice] 1#1: signal 29 (SIGIO) received
+2023/12/02 13:46:12 [notice] 1#1: using the "epoll" event method
+2023/12/02 13:46:12 [notice] 1#1: nginx/1.20.2
+2023/12/02 13:46:12 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2023/12/02 13:46:12 [notice] 1#1: OS: Linux 6.5.0-kali3-amd64
+2023/12/02 13:46:12 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/12/02 13:46:12 [notice] 1#1: start worker processes
+2023/12/02 13:46:12 [notice] 1#1: start worker process 30
+2023/12/02 13:46:12 [notice] 1#1: start worker process 31
+2023/12/02 13:46:12 [notice] 1#1: start worker process 32
+2023/12/02 13:46:12 [notice] 1#1: start worker process 33
