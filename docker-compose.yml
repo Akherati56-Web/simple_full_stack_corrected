@@ -3,7 +3,7 @@ services:
   frontend:
     container_name: frontend
     build:
-      context: ./frontend
+      context: ./frontend/vite_project
       dockerfile: Dockerfile
     ports:
       - 8000:3000
@@ -11,7 +11,7 @@ services:
 
   nginx_react:
     container_name: nginx_react
-    build: ./docker/nginx_react
+    build: ./frontend
     command: nginx -g "daemon off;"
     links:
       - frontend
