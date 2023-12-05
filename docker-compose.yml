@@ -1,18 +1,13 @@
-version: '3.8'
+version: "3.8"
 services:
   frontend:
-    image: node:alpine
     container_name: frontend
     build:
-      context: ./docker/node/
+      context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - 8000:8000
+      - 8000:3000
     working_dir: /vite_project
-    volumes:
-      - type: bind
-        source: ./frontend/react
-        target: /vite_project
 
   nginx_react:
     container_name: nginx_react
@@ -23,41 +18,11 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./logs/nginx_react:/var/log/nginx
+      # - ./logs/nginx_react:/var/log/nginx
       - ./frontend/vite_project:/var/www/html/vite_project
-    
-  database:
-    container_name: mysql
-    image: mysql:5.7.37
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: '1234'
-      MYSQL_DATABASE: bookstore
-      MYSQL_USER: user
-      MYSQL_PASSWORD: '1234'
-    ports:
-      - "3309:3306" 
-    
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - '8080:80'
-    restart: always
-    environment:
-      PMA_HOST: database
-    depends_on:
-      - database 
- 
-  navicat:
-    image: navicat/navicatmonitor:3.0.1
-    ports:
-      - '3000:3000'
-    depends_on:
-      - database
-    network_mode: "host"
-    
-  server:
-    container_name: nginx
+
+  nginx_php:
+    container_name: nginx_php
     build: ./docker/nginx
     command: nginx -g "daemon off;"
     links:
@@ -65,9 +30,9 @@ services:
     ports:
       - "81:80"
     volumes:
-      - ./logs/nginx:/var/log/nginx
+      # - ./logs/nginx:/var/log/nginx
       - ./backend/BookStore:/var/www/html/BookStore
-      
+
   backend:
     container_name: php
     build: ./docker/php
@@ -85,3 +50,32 @@ services:
     working_dir: /var/www/html/BookStore
     command: install
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8090:80"
+    restart: always
+    environment:
+      PMA_HOST: database
+    depends_on:
+      - database
+
+  navicat:
+    image: navicat/navicatmonitor:3.0.1
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    network_mode: "host"
+
+  database:
+    container_name: mysql
+    image: mysql:5.7.37
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+      MYSQL_DATABASE: bookstore
+      MYSQL_USER: user
+      MYSQL_PASSWORD: "1234"
+    ports:
+      - "3309:3306"
