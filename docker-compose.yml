@@ -18,7 +18,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./logs/nginx_react:/var/log/nginx
+      # - ./logs/nginx_react:/var/log/nginx
       - ./frontend/vite_project:/var/www/html/vite_project
 
   nginx_php:
@@ -30,7 +30,7 @@ services:
     ports:
       - "81:80"
     volumes:
-      - ./logs/nginx:/var/log/nginx
+      # - ./logs/nginx:/var/log/nginx
       - ./backend/BookStore:/var/www/html/BookStore
 
   backend:
