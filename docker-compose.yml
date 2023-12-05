@@ -23,7 +23,7 @@ services:
 
   nginx_php:
     container_name: nginx_php
-    build: ./docker/nginx
+    build: ./backend
     command: nginx -g "daemon off;"
     links:
       - backend
@@ -35,38 +35,12 @@ services:
 
   backend:
     container_name: php
-    build: ./docker/php
+    build: ./backend/BookStore
     ports:
       - "9000:9000"
     volumes:
       - ./backend/BookStore:/var/www/html/BookStore
     working_dir: /var/www/html/BookStore
-
-  composer:
-    container_name: composer
-    image: composer/composer
-    volumes:
-      - ./backend/BookStore:/var/www/html/BookStore
-    working_dir: /var/www/html/BookStore
-    command: install
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - "8090:80"
-    restart: always
-    environment:
-      PMA_HOST: database
-    depends_on:
-      - database
-
-  navicat:
-    image: navicat/navicatmonitor:3.0.1
-    ports:
-      - "3000:3000"
-    depends_on:
-      - database
-    network_mode: "host"
 
   database:
     container_name: mysql
@@ -79,3 +53,21 @@ services:
       MYSQL_PASSWORD: "1234"
     ports:
       - "3309:3306"
+
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin
+  #   ports:
+  #     - "8090:80"
+  #   restart: always
+  #   environment:
+  #     PMA_HOST: database
+  #   depends_on:
+  #     - database
+
+  # navicat:
+  #   image: navicat/navicatmonitor:3.0.1
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - database
+  #   network_mode: "host"

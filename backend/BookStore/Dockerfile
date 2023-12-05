@@ -13,3 +13,6 @@ RUN apt install -y g++ libpq-dev zlib1g-dev
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 RUN docker-php-ext-install pdo pdo_mysql
+
+COPY . /var/www/html/BookStore
+
