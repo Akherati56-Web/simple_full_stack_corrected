@@ -1,0 +1,5 @@
+build_image:
+    before_script:
+        - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
+    sctipt:
+        - docker compose build backend 
