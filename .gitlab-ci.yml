@@ -1,6 +1,6 @@
 build_image:
     before_script:
         - docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS
-    sctipt:
+    script:
         - docker build -t registry.gitlab.com/akherati5660/bookstore /backend
         
