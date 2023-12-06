@@ -2,7 +2,9 @@ build_image:
     before_script:
         - chmod 400 $SSH_KEY
     script:
-        - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "ls"
+        - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
+            docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS &&
+            docker run registry.gitlab.com/akherati5660/bookstore/nginx-php "
 
 
 
