@@ -1,5 +1,4 @@
-deploy:
-    stage: deploy
+build_image:
     before_script:
         ##
         ## Install ssh-agent if not already installed, it is required by Docker.
@@ -37,7 +36,10 @@ deploy:
             docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS &&
             docker run registry.gitlab.com/akherati5660/bookstore/nginx-php "
 
-build_image:
+
+
+deploy:
+    stage: deploy
     image: docker:20.10.16
     services:
         - docker:20.10.16-dind
