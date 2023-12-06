@@ -31,9 +31,7 @@ build_image:
         # - git config --global user.email "user@example.com"
         # - git config --global user.name "User name"
     script:
-        - ssh -o StrictHostKeyChecking=no -i root@149.100.156.119 "
-            docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS &&
-            docker run registry.gitlab.com/akherati5660/bookstore/nginx-php "
+        - ssh -o StrictHostKeyChecking=no -i root@149.100.156.119 "ls"
 
 
 
