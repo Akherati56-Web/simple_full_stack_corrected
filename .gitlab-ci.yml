@@ -1,4 +1,7 @@
 build_image:
+    image: docker:20.10.16
+    services:
+        - docker:20.10.16-dind
     before_script:
         - docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS
     script:
