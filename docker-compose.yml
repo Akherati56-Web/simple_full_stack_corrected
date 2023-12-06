@@ -1,0 +1,73 @@
+version: "3.8"
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend/vite_project
+      dockerfile: Dockerfile
+    ports:
+      - 8000:3000
+    working_dir: /vite_project
+
+  nginx_react:
+    container_name: nginx_react
+    build: ./frontend
+    command: nginx -g "daemon off;"
+    links:
+      - frontend
+    ports:
+      - "80:80"
+    volumes:
+      # - ./logs/nginx_react:/var/log/nginx
+      - ./frontend/vite_project:/var/www/html/vite_project
+
+  nginx_php:
+    container_name: nginx_php
+    build: ./backend
+    command: nginx -g "daemon off;"
+    links:
+      - backend
+    ports:
+      - "81:80"
+    volumes:
+      # - ./logs/nginx:/var/log/nginx
+      - ./backend/BookStore:/var/www/html/BookStore
+
+  backend:
+    container_name: php
+    build: ./backend/BookStore
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./backend/BookStore:/var/www/html/BookStore
+    working_dir: /var/www/html/BookStore
+
+  database:
+    container_name: mysql
+    image: mysql:5.7.37
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+      MYSQL_DATABASE: bookstore
+      MYSQL_USER: user
+      MYSQL_PASSWORD: "1234"
+    ports:
+      - "3309:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8090:80"
+    restart: always
+    environment:
+      PMA_HOST: database
+    depends_on:
+      - database
+
+  navicat:
+    image: navicat/navicatmonitor:3.0.1
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    network_mode: "host"
