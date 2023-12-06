@@ -15,3 +15,13 @@ build_image:
         - docker push registry.gitlab.com/akherati5660/bookstore/frontend
         - docker build -t registry.gitlab.com/akherati5660/bookstore/backend ./backend/BookStore
         - docker push registry.gitlab.com/akherati5660/bookstore/backend
+
+deploy:
+    stage: deploy
+    script:
+        - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
+            su ali
+            docker login registry.gitlab.com -u akherati5660 -p glpat-2FRTRxkMk_tasryzQoQ_ &&
+            docker run registry.gitlab.com/akherati5660/bookstore/nginx-php "
+
+    
