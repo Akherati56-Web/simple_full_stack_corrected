@@ -20,10 +20,36 @@ deploy:
     stage: deploy
     image: docker:20.10.16
     before_script:
+        ##
+        ## Install ssh-agent if not already installed, it is required by Docker.
+        ## (change apt-get to yum if you use an RPM-based image)
+        ##
+        - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+
+        ##
+        ## Run ssh-agent (inside the build environment)
+        ##
+        - eval $(ssh-agent -s)
+
+        ##
+        ## Give the right permissions, otherwise ssh-add will refuse to add files
+        ## Add the SSH key stored in SSH_PRIVATE_KEY file type CI/CD variable to the agent store
+        ##
+        - chmod 400 "$SSH_KEY"
+        - ssh-add "$SSH_KEY"
+
+        ##
+        ## Create the SSH directory and give it the right permissions
+        ##
         - mkdir -p ~/.ssh
-        - echo -n  $SSH_KEY  > ~/.ssh/id_rsa
         - chmod 700 ~/.ssh
-        - chmod 600 ~/.ssh/id_rsa
+
+        ##
+        ## Optionally, if you will be using any Git commands, set the user name and
+        ## and email.
+        ##
+        # - git config --global user.email "user@example.com"
+        # - git config --global user.name "User name"
     script:
         - ssh -o StrictHostKeyChecking=no -i root@149.100.156.119 "
             su ali
