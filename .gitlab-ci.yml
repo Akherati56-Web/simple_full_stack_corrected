@@ -5,5 +5,5 @@ build_image:
     variables:
         DOCKER_TLS_CERTDIR: "/certs"
     script:
-        - docker build -t registry.gitlab.com/akherati5660/bookstore /backend/
+        - docker build -t registry.gitlab.com/akherati5660/bookstore ./backend/
         
