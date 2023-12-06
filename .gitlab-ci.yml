@@ -18,7 +18,6 @@ build_image:
 
 deploy:
     stage: deploy
-    image: docker:20.10.16
     before_script:
         ##
         ## Install ssh-agent if not already installed, it is required by Docker.
