@@ -9,4 +9,5 @@ build_image:
     script:
         - docker build -t registry.gitlab.com/akherati5660/bookstore/backend ./backend/
         - docker push registry.gitlab.com/akherati5660/bookstore/backend
-        
+        - docker build -t registry.gitlab.com/akherati5660/bookstore/frontend ./frontend/
+        - docker push registry.gitlab.com/akherati5660/bookstore/frontend
