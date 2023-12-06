@@ -5,12 +5,17 @@ build_image:
         - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
             su ali &&
             docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS &&
-            docker run -d registry.gitlab.com/akherati5660/bookstore/nginx-php "
+            docker run -d registry.gitlab.com/akherati5660/bookstore/nginx-php &&
+            docker run -d registry.gitlab.com/akherati5660/bookstore/nginx-node &&
+            docker run -d registry.gitlab.com/akherati5660/bookstore/frontend &&
+            docker run -d registry.gitlab.com/akherati5660/bookstore/backend
+            "
 
 
 
 deploy:
     stage: deploy
+
     image: docker:20.10.16
     services:
         - docker:20.10.16-dind
