@@ -5,7 +5,7 @@ build_image:
     variables:
         DOCKER_TLS_CERTDIR: "/certs"
     before_script:
-        - docker login registry.gitlab.com -u akherati5660 -p glpat-2FRTRxkMk_tasryzQoQ_
+        - docker login registry.gitlab.com -u REGISTRY_USER -p REGISTRY_PASS
     script:
         - docker build -t registry.gitlab.com/akherati5660/bookstore/nginx-php ./backend/
         - docker push registry.gitlab.com/akherati5660/bookstore/nginx-php
