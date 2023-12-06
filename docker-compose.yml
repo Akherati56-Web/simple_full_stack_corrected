@@ -54,20 +54,20 @@ services:
     ports:
       - "3309:3306"
 
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin
-  #   ports:
-  #     - "8090:80"
-  #   restart: always
-  #   environment:
-  #     PMA_HOST: database
-  #   depends_on:
-  #     - database
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8090:80"
+    restart: always
+    environment:
+      PMA_HOST: database
+    depends_on:
+      - database
 
-  # navicat:
-  #   image: navicat/navicatmonitor:3.0.1
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - database
-  #   network_mode: "host"
+  navicat:
+    image: navicat/navicatmonitor:3.0.1
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    network_mode: "host"
