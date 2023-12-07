@@ -10,4 +10,6 @@ RUN npm install
 
 COPY . /vite_project
 
+EXPOSE 3000
+
 CMD ["npm", "run", "dev"]
