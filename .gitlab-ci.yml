@@ -1,21 +1,5 @@
+
 build_image:
-    before_script:
-        - chmod 400 $SSH_KEY
-    script:
-        - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
-            su ali &&
-            docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS &&
-            docker run -d registry.gitlab.com/akherati5660/bookstore/nginx-php &&
-            docker run -d registry.gitlab.com/akherati5660/bookstore/nginx-node &&
-            docker run -d registry.gitlab.com/akherati5660/bookstore/frontend &&
-            docker run -d registry.gitlab.com/akherati5660/bookstore/backend
-            "
-
-
-
-deploy:
-    stage: deploy
-
     image: docker:20.10.16
     services:
         - docker:20.10.16-dind
@@ -32,3 +16,18 @@ deploy:
         - docker push registry.gitlab.com/akherati5660/bookstore/frontend
         - docker build -t registry.gitlab.com/akherati5660/bookstore/backend ./backend/BookStore
         - docker push registry.gitlab.com/akherati5660/bookstore/backend
+
+
+deploy:
+    stage: deploy
+    before_script:
+        - chmod 400 $SSH_KEY
+    script:
+        - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
+            su ali &&
+            docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS &&
+            docker pull registry.gitlab.com/akherati5660/bookstore/nginx-php &&
+            docker pull registry.gitlab.com/akherati5660/bookstore/nginx-node &&
+            docker pull registry.gitlab.com/akherati5660/bookstore/frontend &&
+            docker pull registry.gitlab.com/akherati5660/bookstore/backend
+            "
