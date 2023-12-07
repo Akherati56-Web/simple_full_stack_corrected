@@ -1,6 +1,5 @@
-deploy:
-    stage: deploy
 
+build_image:
     image: docker:20.10.16
     services:
         - docker:20.10.16-dind
@@ -19,7 +18,8 @@ deploy:
         - docker push registry.gitlab.com/akherati5660/bookstore/backend
 
 
-build_image:
+deploy:
+    stage: deploy
     before_script:
         - chmod 400 $SSH_KEY
     script:
