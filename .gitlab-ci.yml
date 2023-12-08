@@ -24,6 +24,7 @@ deploy:
     script:
         - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
             su ali &&
+            eval $(minikube docker-env)
             docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS &&
             docker pull registry.gitlab.com/akherati5660/bookstore/nginx-php &&
             docker pull registry.gitlab.com/akherati5660/bookstore/nginx-node &&
