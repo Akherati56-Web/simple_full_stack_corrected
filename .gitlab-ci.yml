@@ -17,7 +17,10 @@ build_image:
         - docker build -t registry.gitlab.com/akherati5660/bookstore/backend ./backend/BookStore
         - docker push registry.gitlab.com/akherati5660/bookstore/backend
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3eb019d192712eab95ddcde4a283ace646b9d906
 deploy:
     stage: deploy
     before_script:
@@ -25,6 +28,10 @@ deploy:
     script:
         - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
             su ali &&
+<<<<<<< HEAD
+=======
+            eval $(minikube docker-env)
+>>>>>>> 3eb019d192712eab95ddcde4a283ace646b9d906
             docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS &&
             docker pull registry.gitlab.com/akherati5660/bookstore/nginx-php &&
             docker pull registry.gitlab.com/akherati5660/bookstore/nginx-node &&
