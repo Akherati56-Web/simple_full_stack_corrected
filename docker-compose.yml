@@ -1,7 +1,7 @@
 version: "3.8"
 services:
-  frontend:
-    container_name: frontend
+  frontend-service:
+    container_name: frontend-service
     build:
       context: ./frontend/vite_project
       dockerfile: Dockerfile
@@ -33,8 +33,8 @@ services:
       # - ./logs/nginx:/var/log/nginx
       - ./backend/BookStore:/var/www/html/BookStore
 
-  backend:
-    container_name: php
+  backend-service:
+    container_name: backend-service
     build: ./backend/BookStore
     ports:
       - "9000:9000"
@@ -43,7 +43,7 @@ services:
     working_dir: /var/www/html/BookStore
 
   database:
-    container_name: mysql
+    container_name: database
     image: mysql:5.7.37
     restart: always
     environment:
