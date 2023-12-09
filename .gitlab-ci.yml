@@ -26,6 +26,13 @@ deploy:
     script:
         - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
             su ali &&
+            
+            kubectl create secret docker-registry key \
+            --docker-server=registry.gitlab.com \
+            --docker-username=$DOCKER_USER \
+            --docker-password=$DOCKER_TOKEN \
+            --docker-email=$DOCKER_USER@gmail.com
+
             eval $(minikube docker-env)
             docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS &&
             docker pull registry.gitlab.com/akherati5660/bookstore/nginx-php &&
