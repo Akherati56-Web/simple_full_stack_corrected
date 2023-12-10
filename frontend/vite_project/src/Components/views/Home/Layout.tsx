@@ -26,14 +26,14 @@ const Layout = () => {
                 </li>
               </ul>
               <ul class="navbar-nav ms-auto">
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LoginModal">
+                <button type="button" className="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#LoginModal">
                   Login
                 </button>
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SignUp">
+                <button type="button" className="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#SignUp">
                   SignUp
                 </button>
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button className="btn btn-outline-success" type="submit">Search</button>
+                <input className="form-control me-2 m-1" type="search" placeholder="Search" aria-label="Search" />
+                <button className="btn btn-outline-success m-1" type="submit">Search</button>
               </ul>
             </div>
           </div>
