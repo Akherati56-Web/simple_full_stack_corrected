@@ -20,8 +20,6 @@ WORKDIR /var/www/html/BookStore
 
 RUN apt-get install curl
 
-RUN apt-get install php php-curl
-
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
