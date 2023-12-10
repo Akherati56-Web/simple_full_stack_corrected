@@ -15,18 +15,9 @@ FROM node:14.9 as frontend
 
 WORKDIR /var/www/html/BookStore
 
-COPY artisan package.json webpack.mix.js yarn.lock tailwind.js ./
+COPY . .
 
 RUN npm install
-
-COPY resources/js ./resources/js
-
-COPY resources/sass ./resources/sass
-
-RUN npm install
-
-RUN npm run dev
-
 
 # docker/php/Dockerfile
 FROM php:8.2-fpm
