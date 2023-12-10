@@ -102,4 +102,14 @@ deploy:
             --docker-server=registry.gitlab.com \
             --docker-username=$DOCKER_USER \
             --docker-password=$DOCKER_TOKEN \
-            --docker-email=$DOCKER_USER@gmail.com"
+            --docker-email=$DOCKER_USER@gmail.com
+            
+            "
+
+
+
+
+
+
+
+
