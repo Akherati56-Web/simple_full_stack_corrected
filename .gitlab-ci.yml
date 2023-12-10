@@ -31,10 +31,12 @@ deploy:
             --docker-server=registry.gitlab.com \
             --docker-username=$DOCKER_USER \
             --docker-password=$DOCKER_TOKEN \
-            --docker-email=$DOCKER_USER@gmail.com &&
+            --docker-email=$DOCKER_USER@gmail.com "
+            
+        - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
+            su ali &&
 
             kubectl rollout restart deployment/backend &&
             kubectl rollout restart deployment/frontend &&
             kubectl rollout restart deployment/nginxphp &&
-            kubectl rollout restart deployment/nginxreact
-            "
+            kubectl rollout restart deployment/nginxreact "
