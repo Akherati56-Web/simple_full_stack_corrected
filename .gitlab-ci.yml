@@ -104,7 +104,7 @@ build_secret_key:
             --docker-email=$DOCKER_USER@gmail.com
             "
     only:
-        backend
+       - backend
 
 
 
