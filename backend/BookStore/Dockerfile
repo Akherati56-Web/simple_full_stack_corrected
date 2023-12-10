@@ -7,8 +7,6 @@ WORKDIR /var/www/html/BookStore
 
 RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
 
-RUN compsoer install
-
 RUN composer dump-autoload
 
 # docker/php/Dockerfile
