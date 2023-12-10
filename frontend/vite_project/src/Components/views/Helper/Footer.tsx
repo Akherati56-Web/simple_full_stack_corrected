@@ -76,7 +76,7 @@ function Header() {
                     className="text-center p-4"
                     style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
                 >
-                    © 2021 Copyright:
+                    © 2023 Copyright:
                     <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
                         akherati5660.com
                     </a>

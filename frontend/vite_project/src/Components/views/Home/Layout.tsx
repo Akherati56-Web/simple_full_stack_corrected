@@ -8,30 +8,38 @@ import LoginForm from '../Helper/LoginForm';
 
 const Layout = () => {
   return (
-    <div data-bs-theme="light">
-      <nav className="navbar navbar-expand-sm bg-body-tertiary fixed-top">
-        <div className="container-fluid">
-          <ul className="navbar-nav me-auto">
-            <a className="navbar-brand">Navbar</a>
-            <li className="nav-item">
-              <Link to="/" className="nav-link">Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/content" className="nav-link">Content</Link>
-            </li>
-          </ul>
-        </div>
-        <form className="d-flex flex-column flex-sm-row-reverse col-xs-12" role="search">
-          <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LoginModal">
-            Login
-          </button>
-          <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SignUp">
-            SignUp
-          </button>
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button className="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </nav >
+    <>
+      <form role="search">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li className="nav-item">
+                  <Link to="/" className="nav-link">Home</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/content" className="nav-link">Content</Link>
+                </li>
+              </ul>
+              <ul class="navbar-nav ms-auto">
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LoginModal">
+                  Login
+                </button>
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SignUp">
+                  SignUp
+                </button>
+                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <button className="btn btn-outline-success" type="submit">Search</button>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </form >
+
 
       <div style={{ minHeight: "600px" }}>
         <LoginForm />
@@ -41,7 +49,7 @@ const Layout = () => {
       </div>
 
       <Footer />
-    </div >
+    </>
   )
 };
 
