@@ -128,6 +128,6 @@ deploy:
     name: bitnami/kubectl:latest
     entrypoint: ['']
   script:
-    
+    - kubectl config use-context gitlab.com/-/ide/project/akherati5660/bookstore:bookstore
     - kubectl get pods 
 
