@@ -1,5 +1,5 @@
 
-FROM composer:2.4 as build
+FROM composer:2.4 as backend
 
 COPY . /var/www/html/BookStore
 
@@ -8,6 +8,25 @@ WORKDIR /var/www/html/BookStore
 RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
 
 RUN composer dump-autoload
+
+
+
+FROM node:14.9 as frontend
+
+WORKDIR /var/www/html/BookStore
+
+COPY artisan package.json webpack.mix.js yarn.lock tailwind.js ./
+
+RUN npm install
+
+COPY resources/js ./resources/js
+
+COPY resources/sass ./resources/sass
+
+RUN npm install
+
+RUN npm run dev
+
 
 # docker/php/Dockerfile
 FROM php:8.2-fpm
@@ -27,4 +46,9 @@ RUN docker-php-ext-install pdo pdo_mysql
 
 COPY . /var/www/html/BookStore
 
-COPY --from=build /var/www/html/BookStore/vendor /var/www/html/BookStore/vendor
+COPY --from=backend /var/www/html/BookStore/vendor /var/www/html/BookStore/vendor
+# Copy Frontend backend
+COPY --from=frontend /app/node_modules/ ./node_modules/
+COPY --from=frontend /app/public/js/ ./public/js/
+COPY --from=frontend /app/public/css/ ./public/css/
+COPY --from=frontend /app/public/mix-manifest.json ./public/mix-manifest.json
