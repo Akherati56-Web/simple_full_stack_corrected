@@ -1,4 +1,14 @@
 
+# frontend
+FROM node:14.9 as frontend
+
+WORKDIR /var/www/html/BookStore
+
+COPY . .
+
+RUN npm install
+
+# backend
 FROM composer:2.4 as backend
 
 COPY . /var/www/html/BookStore
@@ -8,16 +18,6 @@ WORKDIR /var/www/html/BookStore
 RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
 
 RUN composer dump-autoload
-
-
-
-FROM node:14.9 as frontend
-
-WORKDIR /var/www/html/BookStore
-
-COPY . .
-
-RUN npm install
 
 # docker/php/Dockerfile
 FROM php:8.2-fpm
