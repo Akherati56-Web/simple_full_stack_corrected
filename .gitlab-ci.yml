@@ -129,5 +129,7 @@ deploy:
     entrypoint: ['']
   script:
     - kubectl config use-context gitlab.com/akherati5660/bookstore:bookstore
-    - kubectl get pods 
- 
+    - kubectl get pods  
+
+
+
