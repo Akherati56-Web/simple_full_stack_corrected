@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxphp
+  labels:
+    app: nginxphp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginxphp
+  template:
+    metadata:
+      labels:
+        app: nginxphp
+    spec:
+      containers:
+        - name: nginxphp
+          image: registry.gitlab.com/akherati5660/bookstore/nginx-php:latest
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "300Mi"
+              cpu: "200m"
+      imagePullSecrets:
+        - name: key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginxphp-service
+spec:
+  selector:
+    app: nginxphp
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30001
