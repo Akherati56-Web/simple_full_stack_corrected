@@ -74,7 +74,7 @@ build_nginx_react:
           - backend/Dockerfile 
 
 
-build_image:
+build_frontend:
     image: docker:20.10.16
     services:
         - docker:20.10.16-dind
@@ -90,8 +90,7 @@ build_image:
       - changes:
           - frontend/vite_project/**/*  
 
-deploy:
-    stage: deploy
+build_secret_key:
     before_script:
         - chmod 400 $SSH_KEY
     script:
