@@ -7,6 +7,8 @@ WORKDIR /var/www/html/BookStore
 
 RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
 
+RUN compsoer install
+
 RUN composer dump-autoload
 
 # docker/php/Dockerfile
@@ -24,8 +26,3 @@ RUN apt install -y g++ libpq-dev zlib1g-dev
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 RUN docker-php-ext-install pdo pdo_mysql
-
-COPY . /var/www/html/BookStore
-
-WORKDIR /var/www/html/BookStore
-
