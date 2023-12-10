@@ -123,5 +123,11 @@ build_helm_charts:
           - helm-charts/**/* 
 
 
-
+deploy:
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: ['']
+  script:
+    - kubectl config use-context path/to/agent/project:agent-name
+    - kubectl get pods
 
