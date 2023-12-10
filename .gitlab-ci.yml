@@ -31,12 +31,10 @@ deploy:
             --docker-server=registry.gitlab.com \
             --docker-username=$DOCKER_USER \
             --docker-password=$DOCKER_TOKEN \
-            --docker-email=$DOCKER_USER@gmail.com
+            --docker-email=$DOCKER_USER@gmail.com &&
 
-            eval $(minikube docker-env)
-            docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS &&
-            docker pull registry.gitlab.com/akherati5660/bookstore/nginx-php &&
-            docker pull registry.gitlab.com/akherati5660/bookstore/nginx-node &&
-            docker pull registry.gitlab.com/akherati5660/bookstore/frontend &&
-            docker pull registry.gitlab.com/akherati5660/bookstore/backend
+            kubectl rollout restart deployment/backend &&
+            kubectl rollout restart deployment/frontend &&
+            kubectl rollout restart deployment/nginxphp &&
+            kubectl rollout restart deployment/nginxreact
             "
