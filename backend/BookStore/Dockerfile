@@ -38,10 +38,11 @@ RUN docker-php-ext-install pdo pdo_mysql
 COPY . /var/www/html/BookStore
 
 COPY --from=backend /var/www/html/BookStore/vendor /var/www/html/BookStore/vendor
+
 # Copy Frontend backend
-COPY --from=frontend /app/node_modules/ ./node_modules/
-COPY --from=frontend /app/public/js/ ./public/js/
-COPY --from=frontend /app/public/css/ ./public/css/
-COPY --from=frontend /app/public/mix-manifest.json ./public/mix-manifest.json
+COPY --from=frontend /var/www/html/BookStore/node_modules/ ./node_modules/
+COPY --from=frontend /var/www/html/BookStore/public/js/ ./public/js/
+COPY --from=frontend /var/www/html/BookStore/public/css/ ./public/css/
+COPY --from=frontend /var/www/html/BookStore/public/mix-manifest.json ./public/mix-manifest.json
 
 CMD [ "npm", "run", "dev" ]
