@@ -1,5 +1,5 @@
 
-build_image:
+build_all:
     image: docker:20.10.16
     services:
         - docker:20.10.16-dind
@@ -16,11 +16,81 @@ build_image:
         - docker push registry.gitlab.com/akherati5660/bookstore/nginx-node
         - docker build -t registry.gitlab.com/akherati5660/bookstore/frontend ./frontend/vite_project
         - docker push registry.gitlab.com/akherati5660/bookstore/frontend
-        
+    only:
+        - backend
 
 
-deploy:
-    stage: deploy
+build_backend:
+    image: docker:20.10.16
+    services:
+        - docker:20.10.16-dind
+    variables:
+        DOCKER_TLS_CERTDIR: "/certs"
+    before_script:
+        - docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS
+    script:
+        - docker build -t registry.gitlab.com/akherati5660/bookstore/backend ./backend/BookStore
+        - docker push registry.gitlab.com/akherati5660/bookstore/backend
+    only:
+    rules:
+      - changes:
+          - backend/BookStore/**/*
+
+
+
+build_nginx_php:
+    image: docker:20.10.16
+    services:
+        - docker:20.10.16-dind
+    variables:
+        DOCKER_TLS_CERTDIR: "/certs"
+    before_script:
+        - docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS
+    script:
+        - docker build -t registry.gitlab.com/akherati5660/bookstore/nginx-php ./backend/
+        - docker push registry.gitlab.com/akherati5660/bookstore/nginx-php
+    only:
+    rules:
+      - changes:
+          - backend/BookStore.nginx.conf
+          - backend/Dockerfile
+
+
+build_nginx_react:
+    image: docker:20.10.16
+    services:
+        - docker:20.10.16-dind
+    variables:
+        DOCKER_TLS_CERTDIR: "/certs"
+    before_script:
+        - docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS
+    script:
+        - docker build -t registry.gitlab.com/akherati5660/bookstore/nginx-react ./frontend/
+        - docker push registry.gitlab.com/akherati5660/bookstore/nginx-react
+    only:
+    rules:
+      - changes:
+          - backend/react.nginx.conf
+          - backend/Dockerfile 
+
+
+build_frontend:
+    image: docker:20.10.16
+    services:
+        - docker:20.10.16-dind
+    variables:
+        DOCKER_TLS_CERTDIR: "/certs"
+    before_script:
+        - docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS
+    script:
+        - docker build -t registry.gitlab.com/akherati5660/bookstore/frontend ./frontend/vite_project
+        - docker push registry.gitlab.com/akherati5660/bookstore/frontend
+    only:
+    rules:
+      - changes:
+          - frontend/vite_project/**/*  
+
+build_secret_key:
     before_script:
         - chmod 400 $SSH_KEY
     script:
@@ -31,10 +101,14 @@ deploy:
             --docker-server=registry.gitlab.com \
             --docker-username=$DOCKER_USER \
             --docker-password=$DOCKER_TOKEN \
-            --docker-email=$DOCKER_USER@gmail.com &&
-
-            kubectl rollout restart deployment/backend &&
-            kubectl rollout restart deployment/frontend &&
-            kubectl rollout restart deployment/nginxphp &&
-            kubectl rollout restart deployment/nginxreact
+            --docker-email=$DOCKER_USER@gmail.com
             "
+    only:
+       - backend
+
+
+
+
+
+
+
