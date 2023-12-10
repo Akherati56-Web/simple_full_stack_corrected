@@ -1,3 +1,13 @@
+
+FROM composer:2.4 as build
+
+COPY . /var/www/html/BookStore
+
+WORKDIR /var/www/html/BookStore
+
+RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
+
+
 # docker/php/Dockerfile
 FROM php:8.2-fpm
 
@@ -18,12 +28,3 @@ COPY . /var/www/html/BookStore
 
 WORKDIR /var/www/html/BookStore
 
-RUN apt-get install curl
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-
-RUN composer update
-
-RUN composer install
