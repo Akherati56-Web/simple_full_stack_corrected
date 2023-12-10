@@ -1,21 +1,17 @@
-import $ from 'jquery';
-import Post from '../../Helper/Post';
-import API from '../../Helper/API';
+import Post from "../../Helper/Post";
+import API from "../../Helper/API";
 
-const api_token = localStorage.getItem('api-token')
-console.log('api token is : ' + api_token);
+const api_token = localStorage.getItem("api-token");
+console.log("api token is : " + api_token);
 function Content() {
-    return (
+  return (
+    <div className="col py-3">
+      <h1>content</h1>
 
-        <div className="col py-3">
-            <h1>content</h1>
-
-
-            <API />
-            {/* <Post /> */}
-        </div>
-    )
+      <API />
+      {/* <Post /> */}
+    </div>
+  );
 }
 
-
-export default Content
+export default Content;
