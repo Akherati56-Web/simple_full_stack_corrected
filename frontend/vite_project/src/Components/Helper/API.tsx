@@ -6,7 +6,7 @@ import config from '../../config.json'
 function API() {
   const [posts, setPosts] = useState(null);
   console.log(config.server)
-  const URL = config.server + '/api/book';
+  const URL = '/api/book';
 
 
   useEffect(() => {
