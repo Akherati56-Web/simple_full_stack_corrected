@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 function Cards({ post }) {
     return (
-        <div className="col-4">
+        <div className="col-xs-12 col-md-4">
             <div className="card m-1" >
                 <img src="..." className="card-img-top" alt="..." />
                 <div className="card-body">
