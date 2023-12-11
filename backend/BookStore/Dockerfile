@@ -44,4 +44,7 @@ COPY --from=frontend /var/www/html/BookStore .
 
 WORKDIR /var/www/html/BookStore
 
-RUN php artisan migrate --seed
+# error:
+# In DatabaseServiceProvider.php line 93:                                 
+# Class "Faker\Factory" not found 
+# RUN php artisan migrate --seed
