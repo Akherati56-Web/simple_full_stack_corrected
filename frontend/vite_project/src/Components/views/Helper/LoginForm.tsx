@@ -21,7 +21,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const baseURL = config.server + "/api/login";
+    const baseURL = "/api/login";
     const token = localStorage.getItem('api-token')
 
 
