@@ -21,7 +21,7 @@ const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const baseURL = config.server + "/api/signup";
+    const baseURL = "/api/signup";
 
     axios.post(baseURL, {
       email: formData.email,
