@@ -6,7 +6,7 @@ services:
       context: ./frontend/vite_project
       dockerfile: Dockerfile
     ports:
-      - 8000:3000
+      - 3000:3000
     working_dir: /vite_project
 
   nginx_react:
@@ -14,7 +14,7 @@ services:
     build: ./frontend
     command: nginx -g "daemon off;"
     links:
-      - frontend
+      - frontend-service
     ports:
       - "80:80"
     volumes:
@@ -26,7 +26,7 @@ services:
     build: ./backend
     command: nginx -g "daemon off;"
     links:
-      - backend
+      - backend-service
     ports:
       - "81:80"
     volumes:
