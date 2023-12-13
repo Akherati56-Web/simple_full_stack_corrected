@@ -129,9 +129,10 @@ add_secret_key:
         - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
             su ali && kubectl create secret docker-registry key \
             --docker-server=registry.gitlab.com \
-            --docker-username=akherati5660 \
-            --docker-password=glpat-2FRTRxkMk_tasryzQoQ_ \
-            --docker-email=akherati5660@gmail.com "
+            --docker-username=$DOCKER_USER \
+            --docker-password=$DOCKER_TOKEN \
+            --docker-email=$DOCKER_USER@gmail.com
+"
 
 
 deploy:
