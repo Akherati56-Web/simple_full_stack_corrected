@@ -122,17 +122,6 @@ build_helm_charts:
           - helm-charts/**/* 
 
 
-add_secret_key:
-    before_script:
-        - chmod 400 $SSH_KEY
-    script:
-        - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
-            kubectl create secret docker-registry key \
-            --docker-server=registry.gitlab.com \
-            --docker-username=$DOCKER_USER \
-            --docker-password=$DOCKER_TOKEN"
-
-
 deploy:
   image:
     name: bitnami/kubectl:latest
