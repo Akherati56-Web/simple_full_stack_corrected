@@ -1,4 +1,3 @@
-
 build_all:
     image: docker:20.10.16
     services:
@@ -121,6 +120,18 @@ build_helm_charts:
     rules:
       - changes:
           - helm-charts/**/* 
+
+
+add_secret_key:
+    before_script:
+        - chmod 400 $SSH_KEY
+    script:
+        - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@149.100.156.119 "
+            su ali && kubectl create secret docker-registry key \
+            --docker-server=registry.gitlab.com \
+            --docker-username=akherati5660 \
+            --docker-password=glpat-2FRTRxkMk_tasryzQoQ_ \
+            --docker-email=akherati5660@gmail.com "
 
 
 deploy:
