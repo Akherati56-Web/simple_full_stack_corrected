@@ -16,7 +16,7 @@ services:
     links:
       - frontend-service
     ports:
-      - "80:80"
+      - "82:80"
     volumes:
       # - ./logs/nginx_react:/var/log/nginx
       - ./frontend/vite_project:/var/www/html/vite_project
@@ -33,6 +33,18 @@ services:
       # - ./logs/nginx:/var/log/nginx
       - ./backend/BookStore:/var/www/html/BookStore
 
+  nginx:
+    container_name: nginx
+    build: ./server
+    command: nginx -g "daemon off;"
+    links:
+      - backend-service
+    ports:
+      - "80:80"
+    depends_on:
+      - nginx_php
+      - nginx_react
+
   backend-service:
     container_name: backend-service
     build: ./backend/BookStore
@@ -42,15 +54,13 @@ services:
       - ./backend/BookStore:/var/www/html/BookStore
     working_dir: /var/www/html/BookStore
 
-  database:
-    container_name: database
+  database-service:
+    container_name: database-service
     image: mysql:5.7.37
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: "1234"
       MYSQL_DATABASE: bookstore
-      MYSQL_USER: user
-      MYSQL_PASSWORD: "1234"
     ports:
       - "3309:3306"
 
@@ -60,14 +70,14 @@ services:
       - "8090:80"
     restart: always
     environment:
-      PMA_HOST: database
+      PMA_HOST: database-service
     depends_on:
-      - database
+      - database-service
 
   navicat:
     image: navicat/navicatmonitor:3.0.1
     ports:
       - "3000:3000"
     depends_on:
-      - database
+      - database-service
     network_mode: "host"
