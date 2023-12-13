@@ -1,4 +1,3 @@
-
 build_all:
     image: docker:20.10.16
     services:
@@ -128,8 +127,7 @@ deploy:
     name: bitnami/kubectl:latest
     entrypoint: ['']
   script:
-    - kubectl config use-context gitlab.com/akherati5660/bookstore:bookstore
-    - kubectl get pods  
+      - ls
 
 
 
