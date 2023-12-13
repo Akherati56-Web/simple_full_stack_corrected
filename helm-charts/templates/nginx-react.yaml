@@ -19,11 +19,11 @@ spec:
           image: registry.gitlab.com/akherati5660/bookstore/nginx-react:latest
           ports:
             - containerPort: 80
-          imagePullPolicy: Always 
+          imagePullPolicy: Always
           resources:
             limits:
               memory: "300Mi"
-              cpu: "200m"
+              cpu: "150m"
       imagePullSecrets:
         - name: key
 ---

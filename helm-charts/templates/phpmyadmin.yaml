@@ -1,42 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginxphp
-  labels:
-    app: nginxphp
+  name: phpmyadmin
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: nginxphp
+      app: phpmyadmin
   template:
     metadata:
       labels:
-        app: nginxphp
+        app: phpmyadmin
     spec:
       containers:
-        - name: nginxphp
-          image: registry.gitlab.com/akherati5660/bookstore/nginx-php:latest
+        - name: phpmyadmin
+          image: phpmyadmin/phpmyadmin:latest
           ports:
             - containerPort: 80
-          imagePullPolicy: Always
+          env:
+            - name: PMA_HOST
+              value: database-service
           resources:
             limits:
               memory: "300Mi"
               cpu: "150m"
-      imagePullSecrets:
-        - name: key
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginxphp-service
+  name: phpmyadmin
 spec:
   selector:
-    app: nginxphp
+    app: phpmyadmin
   type: NodePort
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30001
+      nodePort: 30003
