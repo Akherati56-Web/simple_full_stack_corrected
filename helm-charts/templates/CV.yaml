@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: CV
+  labels:
+    app: CV
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: CV
+  template:
+    metadata:
+      labels:
+        app: CV
+    spec:
+      containers:
+        - name: CV
+          image: registry.gitlab.com/akherati5660/bookstore/CV:latest
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "300Mi"
+              cpu: "150m"
+      imagePullSecrets:
+        - name: key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: CV-service
+spec:
+  selector:
+    app: CV
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30005
