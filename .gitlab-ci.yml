@@ -102,7 +102,10 @@ build_CV:
     script:
         - docker build -t registry.gitlab.com/akherati5660/bookstore/cv ./CV
         - docker push registry.gitlab.com/akherati5660/bookstore/cv
-   
+    only:
+    rules:
+      - changes:
+          - CV/**/*  
 
 build_secret_key:
     before_script:
