@@ -39,6 +39,7 @@ services:
     command: nginx -g "daemon off;"
     links:
       - backend-service
+      - frontend-service
     ports:
       - "80:80"
     depends_on:
