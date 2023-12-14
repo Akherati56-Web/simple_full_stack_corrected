@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: cv
-          image: registry.gitlab.com/akherati5660/bookstore/CV:latest
+          image: registry.gitlab.com/akherati5660/bookstore/cv:latest
           ports:
             - containerPort: 80
           imagePullPolicy: Always
