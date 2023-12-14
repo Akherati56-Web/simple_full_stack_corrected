@@ -11,7 +11,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: CV-service
+            name: cv-service
             port:
               number: 80
   - host: bookstore.akherati5660.com

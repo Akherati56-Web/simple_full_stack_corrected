@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: CV
+  name: cv
   labels:
-    app: CV
+    app: cv
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: CV
+      app: cv
   template:
     metadata:
       labels:
-        app: CV
+        app: cv
     spec:
       containers:
-        - name: CV
+        - name: cv
           image: registry.gitlab.com/akherati5660/bookstore/CV:latest
           ports:
             - containerPort: 80
@@ -30,10 +30,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: CV-service
+  name: cv-service
 spec:
   selector:
-    app: CV
+    app: cv
   type: NodePort
   ports:
     - protocol: TCP
