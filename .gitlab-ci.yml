@@ -89,6 +89,22 @@ build_frontend:
       - changes:
           - frontend/vite_project/**/*  
 
+build_CV:
+    image: docker:20.10.16
+    services:
+        - docker:20.10.16-dind
+    variables:
+        DOCKER_TLS_CERTDIR: "/certs"
+    before_script:
+        - docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS
+    script:
+        - docker build -t registry.gitlab.com/akherati5660/bookstore/CV ./CV
+        - docker push registry.gitlab.com/akherati5660/bookstore/CV
+    only:
+    rules:
+      - changes:
+          - CV/**/*  
+
 build_secret_key:
     before_script:
         - chmod 400 $SSH_KEY
