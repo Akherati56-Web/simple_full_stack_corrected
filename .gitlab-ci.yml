@@ -15,8 +15,8 @@ build_all:
         - docker push registry.gitlab.com/akherati5660/bookstore/nginx-node
         - docker build -t registry.gitlab.com/akherati5660/bookstore/frontend ./frontend/vite_project
         - docker push registry.gitlab.com/akherati5660/bookstore/frontend
-        - docker build -t registry.gitlab.com/akherati5660/bookstore/CV ./CV
-        - docker push registry.gitlab.com/akherati5660/bookstore/CV
+        - docker build -t registry.gitlab.com/akherati5660/bookstore/cv ./CV
+        - docker push registry.gitlab.com/akherati5660/bookstore/cv
     only:
         - backend
 
@@ -100,8 +100,8 @@ build_CV:
     before_script:
         - docker login registry.gitlab.com -u $REGISTRY_USER -p $REGISTRY_PASS
     script:
-        - docker build -t registry.gitlab.com/akherati5660/bookstore/CV ./CV
-        - docker push registry.gitlab.com/akherati5660/bookstore/CV
+        - docker build -t registry.gitlab.com/akherati5660/bookstore/cv ./CV
+        - docker push registry.gitlab.com/akherati5660/bookstore/cv
     only:
     rules:
       - changes:
