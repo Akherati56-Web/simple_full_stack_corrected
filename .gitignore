@@ -5,3 +5,4 @@ frontend/.vscode
 logs/*
 database
 logs
+dokcer-compose.yml
