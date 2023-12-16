@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import config from '../../../config.json'
+import SignUpApi from './SignUpApi';
 
 const SignUpForm = () => {
 
@@ -21,14 +22,7 @@ const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const baseURL = "/api/signup";
-
-    axios.post(baseURL, {
-      email: formData.email,
-      password: formData.password
-    }).then((response) => {
-      console.log(response.data);
-    });
+    SignUpApi({ formData })
   };
 
   return (

@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
 import config from '../../../config.json'
+import LoginApi from './LoginApi';
 
 const LoginForm = () => {
 
   const [formData, setFormData] = useState({
-    // Initialize form fields here
-    // For example:
     email: '',
     password: '',
   });
@@ -21,46 +20,9 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const baseURL = "/api/login";
-    const token = localStorage.getItem('api-token')
+    LoginApi({ formData })
 
-
-    console.log(token)
-
-    if (token) {
-      console.log('true')
-
-      const config = {
-        headers: { Authorization: `Bearer ${token}` }
-      };
-
-      const bodyParameters = {
-        key: "value"
-      };
-
-      axios.post(
-        baseURL,
-        bodyParameters,
-        config
-      ).then((response) => {
-        console.log(response);
-      }).catch(console.log);
-
-    }
-    else {
-      console.log('false')
-      axios.post(baseURL, {
-        email: formData.email,
-        password: formData.password
-      }).then((response) => {
-        localStorage.setItem('api-token', response.data);
-      });
-
-    }
-
-
-
-  };
+  }
 
   return (
     <>

@@ -1,0 +1,23 @@
+import axios from 'axios';
+
+const SendRequest = (baseURL = "/api/test") => {
+    const token = localStorage.getItem('api-token')
+
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+
+    const bodyParameters = {
+        key: "value"
+    };
+
+    axios.post(
+        baseURL,
+        bodyParameters,
+        config
+    ).then((response) => {
+        console.log(response);
+    }).catch(console.log);
+}
+
+export default SendRequest;
