@@ -46,7 +46,8 @@ class UserController extends Controller
             return ['wrong'];
         }
         if (Auth::getUser()->tokens()->get()->first()) {
-            return ['you are logged in'];
+            Auth::user()->tokens()->delete();
+            return Auth::getUser()->createToken('test', ['server'])->plainTextToken;
         }
         return Auth::getUser()->createToken('test', ['server'])->plainTextToken;
     }

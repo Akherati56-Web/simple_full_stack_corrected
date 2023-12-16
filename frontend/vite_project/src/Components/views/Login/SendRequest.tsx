@@ -17,7 +17,10 @@ const SendRequest = (baseURL = "/api/test") => {
         config
     ).then((response) => {
         console.log(response);
-    }).catch(console.log);
+    }).catch(() => {
+        alert('eror')
+        console.log
+    });
 }
 
 export default SendRequest;

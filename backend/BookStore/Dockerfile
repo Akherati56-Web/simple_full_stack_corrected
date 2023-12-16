@@ -19,6 +19,10 @@ RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interacti
 
 RUN composer dump-autoload
 
+RUN composer update
+
+RUN composer install
+
 # docker/php/Dockerfile
 FROM php:8.2-fpm
 
@@ -43,8 +47,3 @@ COPY --from=backend /var/www/html/BookStore/vendor /var/www/html/BookStore/vendo
 COPY --from=frontend /var/www/html/BookStore .
 
 WORKDIR /var/www/html/BookStore
-
-# error:
-# In DatabaseServiceProvider.php line 93:                                 
-# Class "Faker\Factory" not found 
-# RUN php artisan migrate --seed

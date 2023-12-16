@@ -3,3 +3,5 @@
 backend/.vscode
 frontend/.vscode
 logs/*
+database
+logs

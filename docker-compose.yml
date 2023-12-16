@@ -8,6 +8,8 @@ services:
     ports:
       - 3000:3000
     working_dir: /vite_project
+    volumes:
+      - ./frontend/vite_project:/vite_project
 
   nginx_react:
     container_name: nginx_react
@@ -18,7 +20,7 @@ services:
     ports:
       - "82:80"
     volumes:
-      # - ./logs/nginx_react:/var/log/nginx
+      - ./logs/nginx-react:/var/log/nginx
       - ./frontend/vite_project:/var/www/html/vite_project
 
   nginx_php:
@@ -30,7 +32,7 @@ services:
     ports:
       - "81:80"
     volumes:
-      # - ./logs/nginx:/var/log/nginx
+      - ./logs/nginx-php:/var/log/nginx
       - ./backend/BookStore:/var/www/html/BookStore
 
   nginx:
@@ -45,6 +47,8 @@ services:
     depends_on:
       - nginx_php
       - nginx_react
+    volumes:  
+      - ./logs/nginx:/var/log/nginx
 
   backend-service:
     container_name: backend-service
@@ -64,6 +68,9 @@ services:
       MYSQL_DATABASE: bookstore
     ports:
       - "3309:3306"
+    volumes:
+      - ./database:/var/lib/mysql
+      
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
