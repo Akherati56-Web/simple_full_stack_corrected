@@ -62,7 +62,7 @@ metadata:
   namespace: kubernetes-dashboard
 spec:
   rules:
-  - host: dashboard.akherati5660.com
+  - host: temp.dashboard.akherati5660.com
     http:
       paths:
       - path: /
