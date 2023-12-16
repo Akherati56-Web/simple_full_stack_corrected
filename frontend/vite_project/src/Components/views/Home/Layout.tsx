@@ -20,6 +20,7 @@ const Layout = () => {
   useEffect(() => {
     const userIsLoggedIn = localStorage.getItem('api-token');
     setIsLoggedIn(userIsLoggedIn);
+
   }, []);
 
   const handleLogin = () => {

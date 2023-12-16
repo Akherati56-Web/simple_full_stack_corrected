@@ -1,26 +1,28 @@
-// import { useEffect } from 'react';
-// import io from 'socket.io-client';
+import { useEffect } from 'react';
+import io from 'socket.io-client';
 
 const WebSocket = () => {
-    // useEffect(() => {
-    //     const socket = io('http://localhost:81/ws');
+    useEffect(() => {
+        console.log('1')
+        const socket = io('http://localhost/ws');
 
-    //     // Handle WebSocket events
-    //     socket.on('tesing', (data) => {
-    //         console.log('Received data:', data);
-    //     });
+        // Handle WebSocket events
+        socket.on('tesing', (data) => {
+            console.log('Received data:', data);
+        });
+        console.log('2')
 
-    //     return () => {
-    //         // Close the WebSocket connection when the component unmounts
-    //         socket.disconnect();
-    //     };
-    // }, []);
+        return () => {
+            // Close the WebSocket connection when the component unmounts
+            socket.disconnect();
+        };
+    }, []);
 
     return (
         <div>
             {
                 <>
-
+                    test
                 </>
             }
         </div>

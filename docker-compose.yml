@@ -59,6 +59,16 @@ services:
       - ./backend/BookStore:/var/www/html/BookStore
     working_dir: /var/www/html/BookStore
 
+  websocket-service:
+    container_name: websocket-service
+    build: ./backend/BookStore
+    command: ['php', 'artisan', 'websockets:serve']
+    ports:
+      - "6001:6001"
+    volumes:
+      - ./backend/BookStore:/var/www/html/BookStore
+    working_dir: /var/www/html/BookStore
+
   database-service:
     container_name: database-service
     image: mysql:5.7.37
@@ -71,7 +81,6 @@ services:
     volumes:
       - ./database:/var/lib/mysql
       
-
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -89,3 +98,9 @@ services:
     depends_on:
       - database-service
     network_mode: "host"
+
+  redis-database:
+    container_name: redis-database
+    image: redis:alpine
+    ports:
+      - "6379:6379"

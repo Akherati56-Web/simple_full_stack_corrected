@@ -1,6 +1,10 @@
+import React, { useRef, useEffect } from 'react';
 import axios from 'axios';
 
+
 const SendRequest = (baseURL = "/api/test") => {
+
+
     const token = localStorage.getItem('api-token')
 
     const config = {
@@ -18,9 +22,12 @@ const SendRequest = (baseURL = "/api/test") => {
     ).then((response) => {
         console.log(response);
     }).catch(() => {
-        alert('eror')
         console.log
     });
+
+
+
+
 }
 
 export default SendRequest;
