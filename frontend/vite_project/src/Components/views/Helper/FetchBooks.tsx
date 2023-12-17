@@ -7,9 +7,9 @@ function FetchBooks() {
     const URL = '/api/book';
 
     useEffect(() => {
-        GetRequest().then(data => {
-            console.log('Data:', data);
-            setPosts(data)
+        GetRequest().then(response => {
+            console.log('Data:', response.data.data);
+            setPosts(response.data.data)
         }).catch(error => {
             console.error('Error:', error);
         });

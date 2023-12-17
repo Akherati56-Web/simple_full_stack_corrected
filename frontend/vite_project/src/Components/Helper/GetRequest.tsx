@@ -7,7 +7,7 @@ async function GetRequest() {
 
   try {
     let response = await axios.get(URL)
-    getdata = response.data.data
+    getdata = response
   } catch (error) {
     console.error(`ERROR: ${error}`)
   }
