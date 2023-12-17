@@ -10,6 +10,9 @@ function Home() {
     useEffect(() => {
         const userIsLoggedIn = SendRequest()
         console.log(userIsLoggedIn)
+
+
+
     }, []);
 
     return (

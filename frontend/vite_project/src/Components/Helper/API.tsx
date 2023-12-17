@@ -13,7 +13,7 @@ function API() {
     const fetchData = async () => {
       const result = await fetch(URL)
       result.json().then(json => {
-        const data = json.data.original.data
+        const data = json.data
         console.log(data)
         setPosts(data)
       })
@@ -27,8 +27,8 @@ function API() {
         return (
           <>
             <Cards
-              key={item.id}
               post={item}
+              key={key}
 
             />
           </>

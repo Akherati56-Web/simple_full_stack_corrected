@@ -1,12 +1,12 @@
 import $ from 'jquery';
 
-function Cards({ post }) {
+function Cards({ post, key }) {
     return (
-        <div className="col-xs-12 col-md-4">
+        <div className="col-xs-12 col-md-4" key={key}>
             <div className="card m-1" >
                 <img src="..." className="card-img-top" alt="..." />
                 <div className="card-body">
-                    <h5 className="card-title">Card title {post.id} </h5>
+                    <h5 className="card-title">Card title {post.slug} </h5>
                     <p className="card-text">
                         Some quick example text to build on the card title and make up the bulk of
                         the card's content.

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use App\Http\Resources\BookResource;
 
 class BookController extends Controller
 {
@@ -13,9 +14,10 @@ class BookController extends Controller
      */
     public function index()
     {
+        $book = Book::paginate(15);
         return [
             'status' => 400,
-            'data' => Response::json(Book::paginate(15))
+            'data' => BookResource::collection($book)
         ];
     }
 
@@ -49,7 +51,10 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        return [Book::get()->find($book)];
+        return [
+            'status' => 400,
+            'data' => new BookResource($book)
+        ];
     }
 
     /**
@@ -73,7 +78,7 @@ class BookController extends Controller
         $book = $book->update($request->all());
         return [
             "status" => 400,
-            "data" => $book
+            "data" => new BookResource($book)
         ];
     }
 
@@ -85,7 +90,7 @@ class BookController extends Controller
         $book->delete();
         return [
             "status" => 400,
-            "data" => $book
+            "data" => new BookResource($book)
         ];
     }
 }

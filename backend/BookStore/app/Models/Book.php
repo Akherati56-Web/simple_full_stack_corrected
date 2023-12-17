@@ -30,4 +30,9 @@ class Book extends Model
     {
         return $this->belongsToMany(Order::class, 'order_book', 'book_id', 'order_id');
     }
+
+    public function getRouteKeyName()
+    {   
+        return 'slug';
+    }
 }

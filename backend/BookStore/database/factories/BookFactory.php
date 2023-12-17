@@ -18,6 +18,7 @@ class BookFactory extends Factory
     {
         return [
             'user_id' => fake()->numberBetween($min = 1, $max = 5),
+            'slug' => fake()->regexify('[A-Za-z0-9]{50}')
         ];
     }
 }
