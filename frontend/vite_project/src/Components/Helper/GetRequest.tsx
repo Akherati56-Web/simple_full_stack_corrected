@@ -11,9 +11,7 @@ async function GetRequest() {
   } catch (error) {
     console.error(`ERROR: ${error}`)
   }
-
   return getdata
 }
-
 
 export default GetRequest;

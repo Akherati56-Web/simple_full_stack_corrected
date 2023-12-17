@@ -5,7 +5,7 @@ function Cards({ post, key }) {
 
     return (
         <div className="col-xs-12 col-xl-6" key={key}>
-            <div className="card m-1" >
+            <div className="card m-2" >
                 <img src="#" className="card-img-top img-size" alt="image" />
                 <div className="card-body">
                     <h5 className="card-title">Card title  </h5>
