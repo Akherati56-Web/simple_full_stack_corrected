@@ -1,4 +1,5 @@
 import DashBoard from './Components/views/DashBoard/DashBoard';
+import SingleBook from './Components/views/DashBoard/SingleBook';
 import Content from './Components/views/Home/Content';
 import Home from './Components/views/Home/Home'
 import Layout from './Components/views/Home/Layout';
@@ -14,6 +15,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="content" element={<Content />} />
           <Route path="dashboard" element={<DashBoard />} />
+          <Route path="singlebook" element={<SingleBook />} />
         </Route>
       </Routes>
     </BrowserRouter>

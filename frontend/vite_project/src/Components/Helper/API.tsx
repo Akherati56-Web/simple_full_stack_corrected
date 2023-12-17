@@ -16,6 +16,7 @@ function API() {
         const data = json.data
         console.log(data)
         setPosts(data)
+        localStorage.setItem('myData', JSON.stringify(data));
       })
     }
     fetchData();

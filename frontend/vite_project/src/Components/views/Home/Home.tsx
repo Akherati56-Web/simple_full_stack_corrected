@@ -12,7 +12,6 @@ function Home() {
         console.log(userIsLoggedIn)
 
 
-
     }, []);
 
     return (
@@ -20,7 +19,7 @@ function Home() {
             <div className="container-fluid">
                 <div className="row flex-nowrap">
                     <SideMenu />
-                    <WebSocket />
+                    {/* <WebSocket /> */}
                 </div>
             </div>
         </>

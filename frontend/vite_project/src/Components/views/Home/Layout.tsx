@@ -33,6 +33,7 @@ const Layout = () => {
 
   return (
     <>
+
       <form role="search">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
@@ -91,7 +92,6 @@ const Layout = () => {
         <Outlet />
 
       </div>
-
       <Footer />
     </>
   )
