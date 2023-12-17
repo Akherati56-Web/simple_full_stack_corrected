@@ -6,9 +6,9 @@ function Cards({ post, key }) {
     return (
 
         <section className="mx-auto col-xs-12 col-md-6 col-xl-4 p-3">
-            <div className="card">
+            <div className="card border-0 rounded-4 shadow-lg">
                 <div className="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg" className="img-fluid" />
+                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg" className="img-fluid rounded-top-3 shadow-sm" />
                     <a href="#!">
                         <div className="mask" style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }} />
                     </a>
@@ -56,9 +56,20 @@ function Cards({ post, key }) {
                             <div className="chip me-0">9:00PM</div>
                         </li>
                     </ul>
-                    <Link to='/singlebook' state={{ slug: post.slug }} className="card-link">
-                        link
-                    </Link>
+                    <ul className="list-unstyled list-inline d-flex justify-content-between">
+                        <li>
+                            <Link to='/singlebook' state={{ slug: post.slug }} className="card-link text-decoration-none">
+                                more ...
+                            </Link>
+                        </li>
+                        <li>
+                            <ul className='list-unstyled list-inline d-flex justify-content-between'>
+                                <li className="ps-4">25$</li>
+                                <li className="ps-4">2023-02-14</li>
+                            </ul>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         </section>

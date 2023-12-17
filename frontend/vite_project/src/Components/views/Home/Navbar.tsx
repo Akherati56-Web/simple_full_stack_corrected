@@ -20,8 +20,14 @@ const Navbar = () => {
 
     return (
         <form role="search">
+            <div className='container-fluid' >
+                <div className='p-4 mx-auto  justify-content-center' >
+                    <h1 className='text-center'>Akherati</h1>
+                </div>
+
+            </div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
+                <div className="container-fluid py-4">
                     <a className="navbar-brand"><Link to="/" className="nav-link">BookStore</Link></a>
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,10 +61,15 @@ const Navbar = () => {
                             </ul>
                         }
                         {isLoggedIn &&
-                            <ul className="navbar-nav ms-auto">
-                                Welcome
-                                <button className="btn btn-primary m-1" onClick={handleLogout}>Logout</button>
-                            </ul>
+                            <>
+
+                                <ul className="navbar-nav ms-auto">
+                                    <div className=' d-flex align-middle m-1 rounded text-center pt-1'>Welcome</div>
+                                    <li  >
+                                        <button className="btn btn-primary m-1" onClick={handleLogout}>Logout</button>
+                                    </li>
+                                </ul>
+                            </>
                         }
                     </div>
                 </div>
