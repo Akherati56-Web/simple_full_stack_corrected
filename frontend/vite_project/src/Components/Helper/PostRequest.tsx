@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import axios from 'axios';
 
-const SendRequest = (baseURL = "/api/test") => {
+const PostRequest = (baseURL = "/api/test") => {
     const token = localStorage.getItem('api-token')
     const config = {
         headers: { Authorization: `Bearer ${token}` }
@@ -15,4 +15,4 @@ const SendRequest = (baseURL = "/api/test") => {
         console.log
     });
 }
-export default SendRequest;
+export default PostRequest;

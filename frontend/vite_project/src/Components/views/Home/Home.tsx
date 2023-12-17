@@ -5,7 +5,6 @@ function Home() {
         <div className="container-fluid">
             <div className="row flex-nowrap">
                 <SideMenu />
-
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import API from "../../Helper/API";
+import FetchBooks from "../Helper/FetchBooks";
 
 const api_token = localStorage.getItem("api-token");
 console.log("api token is : " + api_token);
@@ -7,7 +7,7 @@ function Content() {
   return (
     <div className="col py-3">
       <h1>content</h1>
-      <API />
+      <FetchBooks />
     </div>
   )
 }

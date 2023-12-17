@@ -27,7 +27,7 @@ function SingleBook() {
             <div className="card">
                 <div className="card-body">
                     <h4 className="card-title">slug </h4>
-                    <p className="card-text">{data && data.slug}</p>
+                    <p className="card-text">{data && data['slug']}</p>
                 </div>
             </div>
         </>
