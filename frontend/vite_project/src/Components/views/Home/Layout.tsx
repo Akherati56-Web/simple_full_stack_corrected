@@ -11,7 +11,7 @@ const Layout = () => {
     <>
       <Navbar />
 
-      <div style={{ minHeight: "600px" }}>
+      <div style={{ minHeight: "800px" }}>
         <LoginForm />
         <SignUpForm />
         <Outlet />

@@ -6,7 +6,7 @@ console.log("api token is : " + api_token);
 function Content() {
   return (
     <div className="col py-3">
-      <h1>content</h1>
+      <h1 className='text-center'>Content</h1>
       <FetchBooks />
     </div>
   )

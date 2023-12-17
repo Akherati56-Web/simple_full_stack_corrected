@@ -1,7 +1,7 @@
 function SideMenu() {
     return (
         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
-            <h1>side menu</h1>
+            <h1 className='text-center'>side menu</h1>
         </div>
     )
 }
