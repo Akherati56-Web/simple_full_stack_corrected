@@ -6,10 +6,15 @@ import GetRequest from '../../Helper/GetRequest'
 function FetchBooks() {
     const [posts, setPosts] = useState([]);
     const URL = '/api/book';
-    const data = GetRequest()
+
 
     useEffect(() => {
-        setPosts(data)
+        GetRequest().then(data => {
+            console.log('Data:', data);
+            setPosts(data)
+        }).catch(error => {
+            console.error('Error:', error);
+        });
     }, []);
 
     return (

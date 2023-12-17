@@ -15,8 +15,8 @@ const Layout = () => {
         <LoginForm />
         <SignUpForm />
         <Outlet />
-
       </div>
+
       <Footer />
     </>
   )

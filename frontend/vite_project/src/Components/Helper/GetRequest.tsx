@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-
-function GetRequest() {
+async function GetRequest() {
   const URL = '/api/book';
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch(URL)
-      result.json().then(data => {
-        console.log(data)
-        return data
-      })
-    }
-    fetchData();
-  }, []);
+  let getdata = null
+
+  try {
+    let response = await axios.get(URL)
+    getdata = response.data.data
+  } catch (error) {
+    console.error(`ERROR: ${error}`)
+  }
+
+  return getdata
 }
+
 
 export default GetRequest;
