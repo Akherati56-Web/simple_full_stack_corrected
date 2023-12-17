@@ -1,6 +1,6 @@
-import $ from 'jquery';
+import { Link } from "react-router-dom";
 
-function Header() {
+function Footer() {
     return (
         <>
             {/* Footer */}
@@ -74,8 +74,8 @@ function Header() {
                     style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
                 >
                     © 2023 Copyright:
-                    <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-                        akherati5660.com
+                    <a className="text-reset fw-bold">
+                        <Link to="/" className="nav-link">akherati5660.com</Link>
                     </a>
                 </div>
                 {/* Copyright */}
@@ -86,4 +86,4 @@ function Header() {
 }
 
 
-export default Header
+export default Footer

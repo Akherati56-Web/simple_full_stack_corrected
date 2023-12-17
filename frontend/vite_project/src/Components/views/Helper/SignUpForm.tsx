@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import config from '../../../config.json'
-import SignUpApi from './SignUpApi';
+import SignUpApi from '../../Helper/SignUpApi';
 
 const SignUpForm = () => {
 

@@ -1,4 +1,3 @@
-import Post from "../../Helper/Post";
 import API from "../../Helper/API";
 
 const api_token = localStorage.getItem("api-token");
@@ -9,7 +8,6 @@ function Content() {
     <div className="col py-3">
       <h1>content</h1>
       <API />
-      {/* <Post /> */}
     </div>
   )
 }

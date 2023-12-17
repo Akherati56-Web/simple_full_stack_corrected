@@ -1,8 +1,5 @@
-import $, { data } from 'jquery';
-import IsLogin from '../../Helper/IsLogin';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import config from '../../../config.json'
 
 function SingleBook() {
     const location = useLocation()
@@ -33,9 +30,6 @@ function SingleBook() {
                     <p className="card-text">{data && data.slug}</p>
                 </div>
             </div>
-
-            {/* <IsLogin.name /> */}
-
         </>
     )
 }

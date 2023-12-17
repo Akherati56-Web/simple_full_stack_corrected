@@ -5,7 +5,6 @@ const WebSocket = () => {
     useEffect(() => {
         const socket = io('http://localhost/ws');
 
-
         // Handle WebSocket events
         socket.on('testing', (data) => {
             console.log('Received data:', data);
@@ -19,16 +18,6 @@ const WebSocket = () => {
             socket.disconnect();
         };
     }, []);
-
-    return (
-        <div>
-            {
-                <>
-                    test
-                </>
-            }
-        </div>
-    );
 };
 
 export default WebSocket;

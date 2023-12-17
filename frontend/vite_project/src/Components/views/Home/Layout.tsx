@@ -1,10 +1,9 @@
 import { Outlet, Link } from "react-router-dom";
-import $ from 'jquery';
 import 'bootstrap/dist/js/bootstrap.min.js'
-import Footer from '../Helper/Footer';
+import Footer from './Footer';
 
-import SignUpForm from '../SignUp/SignUpForm';
-import LoginForm from '../Login/LoginForm';
+import SignUpForm from '../Helper/SignUpForm';
+import LoginForm from '../Helper/LoginForm';
 
 import React, { useState, useEffect } from 'react';
 
@@ -37,7 +36,8 @@ const Layout = () => {
       <form role="search">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">BookStore</a>
+            <a className="navbar-brand"><Link to="/" className="nav-link">BookStore</Link></a>
+
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>

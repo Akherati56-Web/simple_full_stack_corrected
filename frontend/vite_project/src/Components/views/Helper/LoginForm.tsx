@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import config from '../../../config.json'
-import LoginApi from './LoginApi';
+import LoginApi from '../../Helper/LoginApi';
 
 const LoginForm = () => {
 
