@@ -2,9 +2,7 @@ import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
 function Cards({ post, key }) {
-
     return (
-
         <section className="mx-auto col-xs-12 col-md-6 col-xl-4 p-3">
             <div className="card border-0 rounded-4 shadow-lg">
                 <div className="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
@@ -68,12 +66,10 @@ function Cards({ post, key }) {
                                 <li className="ps-4">2023-02-14</li>
                             </ul>
                         </li>
-
                     </ul>
                 </div>
             </div>
         </section>
-
     )
 }
 
