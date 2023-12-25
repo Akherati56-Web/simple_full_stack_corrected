@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook
+  name: resume
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://gitlab.com/akherati5660/bookstore
-    targetRevision: HEAD
+    repoURL: https://github.com/akherati56/simple_full_stack_corrected
+    targetRevision: main
     path: helm-charts/templates
   destination:
     server: https://kubernetes.default.svc
-    namespace: guestbook
+    namespace: resume
