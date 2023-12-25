@@ -6,7 +6,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
-  rules:
+rules:
   - host: akherati5660.com
     http:
       paths:
@@ -61,7 +61,7 @@ metadata:
   name: ingress-object
   namespace: kubernetes-dashboard
 spec:
-  rules:
+rules:
   - host: temp.dashboard.akherati5660.com
     http:
       paths:
@@ -79,7 +79,7 @@ metadata:
   name: ingress-object
   namespace: argocd
 spec:
-  rules:
+rules:
   - host: wwww.akherati5660.com
       http:
         paths:
