@@ -20,7 +20,7 @@ spec:
         - containerPort: 9300
         resources:
           limits:
-            cpu: 500m
+            cpu: 100m
           requests:
             cpu: 100m
 ---
@@ -47,7 +47,7 @@ metadata:
 spec:
  replicas: 1
  selector:
-    matchLabels:
+   matchLabels:
       app: kibana
  template:
     metadata:
@@ -61,7 +61,7 @@ spec:
         - containerPort: 5601
         resources:
           limits:
-            cpu: 500m
+            cpu: 100m
           requests:
             cpu: 100m
 ---
