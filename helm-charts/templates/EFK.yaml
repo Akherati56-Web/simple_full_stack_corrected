@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
  name: elasticsearch
 spec:
- replicas: 1
  selector:
     matchLabels:
       app: elasticsearch
+ replicas: 1
  template:
     metadata:
       labels:
@@ -14,15 +14,19 @@ spec:
     spec:
       containers:
       - name: elasticsearch
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.13.2
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
         ports:
-        - containerPort: 9200
-        - containerPort: 9300
+        - name: http
+          containerPort: 9200
+        - name: transport
+          containerPort: 9300
         resources:
           limits:
             cpu: 100m
+            memory: 1Gi
           requests:
             cpu: 100m
+            memory: 1Gi
 ---
 apiVersion: v1
 kind: Service
@@ -32,13 +36,15 @@ spec:
  selector:
     app: elasticsearch
  ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 9200
       targetPort: 9200
-    - protocol: TCP
+    - name: transport
+      protocol: TCP
       port: 9300
       targetPort: 9300
- type: LoadBalancer
+ type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
