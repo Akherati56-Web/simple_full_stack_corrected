@@ -73,7 +73,24 @@ spec:
             name: kubernetes-dashboard
             port:
               number: 80
-
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-object
+  namespace: argocd
+spec:
+  rules:
+  - host: akherati5660.com/argocd
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 443
 
 
 
