@@ -17,6 +17,7 @@ spec:
       app: mysql
   strategy:
     type: Recreate
+  replicas: 0
   template:
     metadata:
       labels:
