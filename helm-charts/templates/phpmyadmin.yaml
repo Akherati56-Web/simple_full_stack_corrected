@@ -17,6 +17,9 @@ spec:
         image: phpmyadmin/phpmyadmin
         ports:
         - containerPort: 80
+        env:
+          - name: PMA_HOST
+            value: "database-service"
 ---
 apiVersion: v1
 kind: Service
