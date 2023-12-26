@@ -75,3 +75,25 @@ spec:
       resources:
         requests:
           storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: es-pv-volume
+spec:
+ accessModes:
+    - ReadWriteOnce
+ capacity:
+    storage: 1Gi
+ persistentVolumeReclaimPolicy: Retain
+ storageClassName: localstorage
+ local:
+    path: /mnt/es
+ nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - my-node
