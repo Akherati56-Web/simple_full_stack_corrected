@@ -79,6 +79,8 @@ kind: Ingress
 metadata:
   name: ingress-object
   namespace: argocd
+  annotations:
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
   - host: argocd.akherati5660.com
