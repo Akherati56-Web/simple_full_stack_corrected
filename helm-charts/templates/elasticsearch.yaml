@@ -44,7 +44,7 @@ spec:
           - name: cluster.initial_master_nodes
             value: "es-cluster-0,es-cluster-1,es-cluster-2"
           - name: ES_JAVA_OPTS
-            value: "-Xms512m -Xmx512m"
+            value: "-Xms1000m -Xmx1000m"
       initContainers:
       - name: fix-permissions
         image: busybox
@@ -75,4 +75,4 @@ spec:
       storageClassName: "standard"
       resources:
         requests:
-          storage: 1Gi
+          storage: 20Gi
