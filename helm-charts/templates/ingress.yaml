@@ -52,13 +52,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: nginxreact-service
-            port:
-              number: 80
-      - path: /api
-        pathType: Prefix
-        backend:
-          service:
             name: phpmyadmin
             port:
               number: 80
