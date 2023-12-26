@@ -81,10 +81,10 @@ metadata:
   namespace: argocd
 spec:
   rules:
-  - host: akherati5660.com
+  - host: argocd.akherati5660.com
     http:
       paths:
-      - path: /argocd
+      - path: /
         pathType: Prefix
         backend:
           service:
