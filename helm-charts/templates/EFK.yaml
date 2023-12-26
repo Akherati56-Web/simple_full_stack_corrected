@@ -99,7 +99,7 @@ spec:
     spec:
       containers:
       - name: fluentd
-        image: fluent/fluentd-kubernetes-daemonset:v1.11.1
+        image: fluent/fluentd-kubernetes-daemonset:v1.7.4
         volumeMounts:
         - name: varlog
           mountPath: /var/log
