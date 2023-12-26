@@ -6,6 +6,7 @@ spec:
  selector:
     matchLabels:
       app: fluentd
+ replicas: 0
  template:
     metadata:
       labels:
