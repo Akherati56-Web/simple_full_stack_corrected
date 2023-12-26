@@ -11,7 +11,7 @@ spec:
     path: helm-charts/templates
   destination:
     server: https://kubernetes.default.svc
-    namespace: resume
+    namespace: default
   syncPolicy: 
     syncOptions:
     - CreateNamespace=true
