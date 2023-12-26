@@ -45,16 +45,6 @@ spec:
             name: nginxphp-service
             port:
               number: 80
-  - host: monitoring.akherati5660.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: grafana-ext
-            port:
-              number: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -91,6 +81,23 @@ spec:
             name: argocd-server
             port:
               number: 80
-
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-object
+  namespace: argocd
+spec:
+  rules:
+  - host: monitoring.akherati5660.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: grafana-ext
+            port:
+              number: 80
 
 
