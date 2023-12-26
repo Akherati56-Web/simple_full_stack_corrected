@@ -18,8 +18,14 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: PMA_HOST
-              value: database-service
+            - name: MYSQL_USER
+              value: "root"
+            - name: MYSQL_PASSWORD
+              value: "1234"
+            - name: MYSQL_HOST
+              value: "database-service"
+            - name: MYSQL_PORT
+              value: "3306"
           resources:
             limits:
               memory: "300Mi"
