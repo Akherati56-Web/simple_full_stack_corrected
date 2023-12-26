@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cv
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: cv
@@ -23,7 +23,7 @@ spec:
           resources:
             limits:
               memory: "300Mi"
-              cpu: "150m"
+              cpu: "50m"
       imagePullSecrets:
         - name: key
 ---
