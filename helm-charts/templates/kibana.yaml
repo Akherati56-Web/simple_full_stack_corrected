@@ -19,9 +19,8 @@ spec:
         - containerPort: 5601
         resources:
           limits:
-            cpu: 100m
-          requests:
-            cpu: 100m
+            memory: "300Mi"
+            cpu: "50m"
 ---
 apiVersion: v1
 kind: Service
