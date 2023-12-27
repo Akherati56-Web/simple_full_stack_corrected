@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Backend') {
             when {
-                changeset './backend/**/*'
+                changeset './backend/*'
             }
             steps {
                 script{
