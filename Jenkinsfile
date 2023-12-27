@@ -34,7 +34,8 @@ pipeline {
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/backend ./backend/BookStore"
-                    sh "docker push $REGISTRY/akherati5660/bookstore/backend"
+                    sh "docker tag akherati5660/bookstore/backend:$IMAGE_TAG $REGISTRY/akherati5660/bookstore/backend:$IMAGE_TAG"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/backend:$IMAGE_TAG"
                 }
             }
         }
@@ -42,7 +43,8 @@ pipeline {
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/frontend ./frontend/vite_project"
-                    sh "docker push $REGISTRY/akherati5660/bookstore/frontend"
+                    sh "docker tag akherati5660/bookstore/frontend:$IMAGE_TAG $REGISTRY/akherati5660/bookstore/frontend:$IMAGE_TAG"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/frontend:$IMAGE_TAG"
                 }
             }
         }
@@ -50,7 +52,8 @@ pipeline {
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/nginx-php ./backend/"
-                    sh "docker push $REGISTRY/akherati5660/bookstore/nginx-php"
+                    sh "docker tag akherati5660/bookstore/nginx-php:$IMAGE_TAG $REGISTRY/akherati5660/bookstore/nginx-php:$IMAGE_TAG"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/nginx-php:$IMAGE_TAG"
                 }
             }
         }
@@ -58,7 +61,8 @@ pipeline {
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/nginx-node ./frontend/"
-                    sh "docker push $REGISTRY/akherati5660/bookstore/nginx-node"
+                    sh "docker tag akherati5660/bookstore/nginx-node:$IMAGE_TAG $REGISTRY/akherati5660/bookstore/nginx-node:$IMAGE_TAG"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/nginx-node:$IMAGE_TAG"
                 }
             }
         }
@@ -66,7 +70,8 @@ pipeline {
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/cv ./CV"
-                    sh "docker push $REGISTRY/akherati5660/bookstore/cv"
+                    sh "docker tag akherati5660/bookstore/cv:$IMAGE_TAG $REGISTRY/akherati5660/bookstore/cv:$IMAGE_TAG"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/cv:$IMAGE_TAG"
                 }
             }
         }
