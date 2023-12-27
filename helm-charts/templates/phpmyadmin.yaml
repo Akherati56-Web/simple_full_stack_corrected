@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: phpmyadmin
-  replicas: 0
+  replicas: {{ .Values.replicas }}
   template:
     metadata:
       labels:

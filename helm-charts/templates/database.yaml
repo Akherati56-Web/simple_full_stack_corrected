@@ -17,7 +17,7 @@ spec:
       app: mysql
   strategy:
     type: Recreate
-  replicas: 0
+  replicas: {{ .Values.replicas }}
   template:
     metadata:
       labels:
