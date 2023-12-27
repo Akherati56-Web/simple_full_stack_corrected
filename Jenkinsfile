@@ -1,10 +1,6 @@
 pipeline {
     agent any
     
-    triggers {
-        folderTrigger '/backend, /frontend'
-    }
-
     stages {
         stage('Login') {
             steps {
@@ -37,7 +33,7 @@ pipeline {
         }
         stage('Backend') {
             when {
-                changeset './backend/BookStore/**'
+                changeset './backend/**/*'
             }
             steps {
                 script{
