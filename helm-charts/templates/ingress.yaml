@@ -82,9 +82,6 @@ kind: Ingress
 metadata:
   name: ingress-object
   namespace: argocd
-  annotations:
-    kubernetes.io/ingress.class: contour-internal
-    ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   rules:
   - host: argocd.akherati5660.com
