@@ -10,7 +10,7 @@ replicas:
   kibana: 0
 
 cpu:
-  cv: "50m"
+  cv: "100m"
   frontend: "100m"
   backend: "100m"
   database: "100m"
