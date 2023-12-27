@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: phpmyadmin
-  replicas: {{ .Values.replicas.main }}
+  replicas: {{ .Values.replicas.phpmyadmin }}
   template:
     metadata:
       labels:
@@ -28,8 +28,8 @@ spec:
               value: "1234"
           resources:
             limits:
-              memory: {{ .Values.memory.main }}
-              cpu: {{ .Values.cpu.main }}
+              memory: {{ .Values.memory.phpmyadmin }}
+              cpu: {{ .Values.cpu.phpmyadmin }}
 ---
 apiVersion: v1
 kind: Service

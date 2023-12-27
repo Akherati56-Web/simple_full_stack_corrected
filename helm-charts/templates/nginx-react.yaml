@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginxreact
 spec:
-  replicas: {{ .Values.replicas.main }}
+  replicas: {{ .Values.replicas.nginx-react }}
   selector:
     matchLabels:
       app: nginxreact
@@ -22,8 +22,8 @@ spec:
           imagePullPolicy: Always
           resources:
             limits:
-              memory: {{ .Values.memory.main }}
-              cpu: {{ .Values.cpu.main }}
+              memory: {{ .Values.memory.nginx-react }}
+              cpu: {{ .Values.cpu.nginx-react }}
       imagePullSecrets:
         - name: key
 ---

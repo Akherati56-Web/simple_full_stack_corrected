@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cv
 spec:
-  replicas: {{ .Values.replicas.main }}
+  replicas: {{ .Values.replicas.cv }}
   selector:
     matchLabels:
       app: cv
@@ -22,8 +22,8 @@ spec:
           imagePullPolicy: Always
           resources:
             limits:
-              memory: {{ .Values.memory.main }}
-              cpu: {{ .Values.cpu.main }}
+              memory: {{ .Values.memory.cv }}
+              cpu: {{ .Values.cpu.cv }}
       imagePullSecrets:
         - name: key
 ---

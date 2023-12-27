@@ -1,9 +1,26 @@
 replicas:
-  main: 1
-  efk: 0
+  cv: 1
+  frontend: 1
+  backend: 1
+  database: 1
+  nginx-php: 1
+  nginx-react: 1
+  phpmyadmin: 0
 
 cpu:
-  main: "100m"
+  cv: "100m"
+  frontend: "100m"
+  backend: "100m"
+  database: "100m"
+  nginx-php: "100m"
+  nginx-react: "100m"
+  phpmyadmin: "100m"
 
 memory:
-  main: "450Mi"
+  cv: "300Mi"
+  frontend: "300Mi"
+  backend: "300Mi"
+  database: "300Mi"
+  nginx-php: "300Mi"
+  nginx-react: "300Mi"
+  phpmyadmin: "300Mi"

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginxphp
 spec:
-  replicas: {{ .Values.replicas.main }}
+  replicas: {{ .Values.replicas.nginx-php }}
   selector:
     matchLabels:
       app: nginxphp
@@ -22,8 +22,8 @@ spec:
           imagePullPolicy: Always
           resources:
             limits:
-              memory: {{ .Values.memory.main }}
-              cpu: {{ .Values.cpu.main }}
+              memory: {{ .Values.memory.nginx-php }}
+              cpu: {{ .Values.cpu.nginx-php }}
       imagePullSecrets:
         - name: key
 ---

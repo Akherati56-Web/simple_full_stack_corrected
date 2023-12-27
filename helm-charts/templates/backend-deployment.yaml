@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: backend
 spec:
-  replicas: {{ .Values.replicas.main }}
+  replicas: {{ .Values.replicas.backend }}
   selector:
     matchLabels:
       app: backend
@@ -20,8 +20,8 @@ spec:
           imagePullPolicy: Always
           resources:
             limits:
-              memory: {{ .Values.memory.main }}
-              cpu: {{ .Values.cpu.main }}
+              memory: {{ .Values.memory.backend }}
+              cpu: {{ .Values.cpu.backend }}
       imagePullSecrets:
         - name: key
 ---
