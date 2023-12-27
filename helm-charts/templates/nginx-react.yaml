@@ -22,7 +22,7 @@ spec:
           imagePullPolicy: Always
           resources:
             limits:
-              memory: {{ .Values.memory.nginx_eact }}
+              memory: {{ .Values.memory.nginx_react }}
               cpu: {{ .Values.cpu.nginx_react }}
       imagePullSecrets:
         - name: key
