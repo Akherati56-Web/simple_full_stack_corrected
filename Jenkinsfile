@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+    triggers {
+        folderTrigger '/backend, /frontend'
+    }
+
     stages {
         stage('Login') {
             steps {
