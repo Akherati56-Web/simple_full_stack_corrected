@@ -98,7 +98,7 @@ spec:
           resources:
             limits:
               memory: "600Mi"
-              cpu: "250m"
+              cpu: "450m"
           ports:
             - name: httpport
               containerPort: 8080
