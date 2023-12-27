@@ -22,3 +22,10 @@ kind: Namespace
 apiVersion: v1
 metadata:
   name: kube-logging
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: devops-tools
+
+  
