@@ -1,3 +1,9 @@
 replicas:
   main: 1
   efk: 0
+
+cpu:
+  main: "100m"
+
+memory:
+  main: "450Mi"

@@ -28,8 +28,8 @@ spec:
               value: "1234"
           resources:
             limits:
-              memory: "300Mi"
-              cpu: "100m"
+              memory: {{ .Values.memory.main }}
+              cpu: {{ .Values.cpu.main }}
 ---
 apiVersion: v1
 kind: Service
