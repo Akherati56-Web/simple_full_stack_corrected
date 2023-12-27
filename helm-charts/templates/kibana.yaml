@@ -19,7 +19,7 @@ metadata:
   labels:
     app: kibana
 spec:
-  replicas: {{ .Values.replicas.efk }}
+  replicas: {{ .Values.replicas.kibana }}
   selector:
     matchLabels:
       app: kibana
@@ -33,9 +33,8 @@ spec:
         image: docker.elastic.co/kibana/kibana:7.2.0
         resources:
           limits:
-            cpu: 150m
-          requests:
-            cpu: 150m
+            cpu: {{ .Values.cpu.kibana }}
+            memory: {{ .Values.memory.kibana }}
         env:
           - name: ELASTICSEARCH_URL
             value: http://elasticsearch:9200

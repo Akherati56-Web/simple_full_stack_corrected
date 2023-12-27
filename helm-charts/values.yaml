@@ -6,6 +6,8 @@ replicas:
   nginx_php: 1
   nginx_react: 1
   phpmyadmin: 0
+  elasticsearch: 0
+  kibana: 0
 
 cpu:
   cv: "100m"
@@ -15,6 +17,8 @@ cpu:
   nginx_php: "100m"
   nginx_react: "100m"
   phpmyadmin: "100m"
+  elasticsearch: "100m"
+  kibana: "100m"
 
 memory:
   cv: "300Mi"
@@ -24,3 +28,5 @@ memory:
   nginx_php: "300Mi"
   nginx_react: "300Mi"
   phpmyadmin: "300Mi"
+  elasticsearch: "300Mi"
+  kibana: "300Mi"
