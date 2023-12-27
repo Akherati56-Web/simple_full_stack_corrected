@@ -1,43 +1,73 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Login') {
             steps {
                 // For simplicity, we assume that Docker is already installed on the agent machine.
                 script {
                     
                     env.REGISTRY = "registry.gitlab.com"
-                    env.REPOSITORY = "akherati5660/bookstore/backend"
-                    env.IMAGE_TAG = "v1"
-                    env.DOCKERFILE_PATH = "./backend/BookStore"
+                    env.IMAGE_TAG = "latest"
+                    // env.REPOSITORY = "akherati5660/bookstore/backend"
+                    // env.DOCKERFILE_PATH = "./backend/BookStore"
 
                     // Authenticate with the container registry
                     withCredentials([usernamePassword(credentialsId: 'gitlab-credentials', passwordVariable: 'REGISTRY_PASSWORD', usernameVariable: 'REGISTRY_USERNAME')]) {
                         sh "docker login -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD $REGISTRY"
                     }
 
-                    // Build the Docker image
-                    sh "docker build -t $REPOSITORY:$IMAGE_TAG $DOCKERFILE_PATH"
+                    // // Build the Docker image
+                    // sh "docker build -t $REPOSITORY:$IMAGE_TAG $DOCKERFILE_PATH"
 
-                    // Tag the Docker image with the container registry URL
-                    sh "docker tag $REPOSITORY:$IMAGE_TAG $REGISTRY/$REPOSITORY:$IMAGE_TAG"
+                    // // Tag the Docker image with the container registry URL
+                    // sh "docker tag $REPOSITORY:$IMAGE_TAG $REGISTRY/$REPOSITORY:$IMAGE_TAG"
 
-                    // Push the Docker image to the container registry
-                    sh "docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG"
+                    // // Push the Docker image to the container registry
+                    // sh "docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG"
                     
-                    // Log out from the container registry
-                    sh "docker logout $REGISTRY"
+                    // // Log out from the container registry
+                    // sh "docker logout $REGISTRY"
                 }
             }
         }
-        stage('Test') {
+        stage('Backend') {
             steps {
-                echo 'New Testing..'
+                script{
+                    sh "docker build -t akherati5660/bookstore/backend ./backend/BookStore"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/backend"
+                }
             }
         }
-        stage('Deploy') {
+        stage('Frontend') {
             steps {
-                echo 'New Deploying...'
+                script{
+                    sh "docker build -t akherati5660/bookstore/frontend ./frontend/vite_project"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/frontend"
+                }
+            }
+        }
+        stage('nginx php') {
+            steps {
+                script{
+                    sh "docker build -t akherati5660/bookstore/nginx-php ./backend/"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/nginx-php"
+                }
+            }
+        }
+        stage('nginx react') {
+            steps {
+                script{
+                    sh "docker build -t akherati5660/bookstore/nginx-node ./frontend/"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/nginx-node"
+                }
+            }
+        }
+        stage('cv') {
+            steps {
+                script{
+                    sh "docker build -t akherati5660/bookstore/cv ./CV"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/cv"
+                }
             }
         }
     }
