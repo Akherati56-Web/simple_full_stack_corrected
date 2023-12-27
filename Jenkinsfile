@@ -31,6 +31,9 @@ pipeline {
             }
         }
         stage('Backend') {
+            when {
+                changeset './backend/BookStore/**'
+            }
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/backend ./backend/BookStore"
@@ -40,6 +43,9 @@ pipeline {
             }
         }
         stage('Frontend') {
+            when {
+                changeset './frontend/vite_project/**'
+            }
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/frontend ./frontend/vite_project"
@@ -49,6 +55,10 @@ pipeline {
             }
         }
         stage('nginx php') {
+            when {
+                changeset './backend/Dockerfile'
+                changeset './backend/BookStore.nginx.conf'
+            }
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/nginx-php ./backend/"
@@ -58,6 +68,10 @@ pipeline {
             }
         }
         stage('nginx react') {
+            when {
+                changeset './frontend/Dockerfile'
+                changeset './frontend/react.nginx.conf'
+            }
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/nginx-node ./frontend/"
@@ -67,6 +81,9 @@ pipeline {
             }
         }
         stage('cv') {
+            when {
+                changeset './CV/**'
+            }
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/cv ./CV"
