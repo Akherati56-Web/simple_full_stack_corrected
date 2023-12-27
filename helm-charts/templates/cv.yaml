@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cv
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: {{ .Values.replicas.main }}
   selector:
     matchLabels:
       app: cv

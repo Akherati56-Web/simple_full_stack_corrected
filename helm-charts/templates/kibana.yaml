@@ -19,7 +19,7 @@ metadata:
   labels:
     app: kibana
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: {{ .Values.replicas.efk }}
   selector:
     matchLabels:
       app: kibana
