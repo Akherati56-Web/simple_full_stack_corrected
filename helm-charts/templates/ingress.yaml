@@ -147,7 +147,7 @@ metadata:
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
   rules:
-  - host: efklog.akherati5660.com
+  - host: jenkins.akherati5660.com
     http:
       paths:
       - path: /
