@@ -3,8 +3,8 @@ replicas:
   frontend: 1
   backend: 1
   database: 1
-  nginx-php: 1
-  nginx-react: 1
+  nginx_php: 1
+  nginx_react: 1
   phpmyadmin: 0
 
 cpu:
@@ -12,8 +12,8 @@ cpu:
   frontend: "100m"
   backend: "100m"
   database: "100m"
-  nginx-php: "100m"
-  nginx-react: "100m"
+  nginx_php: "100m"
+  nginx_react: "100m"
   phpmyadmin: "100m"
 
 memory:
@@ -21,6 +21,6 @@ memory:
   frontend: "300Mi"
   backend: "300Mi"
   database: "300Mi"
-  nginx-php: "300Mi"
-  nginx-react: "300Mi"
+  nginx_php: "300Mi"
+  nginx_react: "300Mi"
   phpmyadmin: "300Mi"
