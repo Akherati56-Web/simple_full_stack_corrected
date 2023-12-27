@@ -141,23 +141,3 @@ spec:
             port:
               number: 5601
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: ingress-object
-  namespace: devops-tools
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
-spec:
-  rules:
-  - host: jenkins.akherati5660.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: jenkins-service
-            port:
-              number: 8080
