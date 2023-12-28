@@ -33,8 +33,8 @@ pipeline {
         stage('Backend') {
             steps {
                 script{
-                    sh "docker build -t $REGISTRY/akherati5660/bookstore/backend ./backend/BookStore"
-                    sh "docker tag $REGISTRY/akherati5660/bookstore/backend:$IMAGE_TAG $REGISTRY/akherati5660/bookstore/backend:$IMAGE_TAG"
+                    sh "docker build -t akherati5660/bookstore/backend ./backend/BookStore"
+                    sh "docker tag akherati5660/bookstore/backend $REGISTRY/akherati5660/bookstore/backend:$IMAGE_TAG"
                     sh "docker push $REGISTRY/akherati5660/bookstore/backend:$IMAGE_TAG"
                 }
             }
