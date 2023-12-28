@@ -43,7 +43,7 @@ pipeline {
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/frontend ./frontend/vite_project"
-                    sh "docker tag akherati5660/bookstore/frontend:$IMAGE_TAG $REGISTRY/akherati5660/bookstore/frontend:$IMAGE_TAG"
+                    sh "docker tag akherati5660/bookstore/frontend $REGISTRY/akherati5660/bookstore/frontend:$IMAGE_TAG"
                     sh "docker push $REGISTRY/akherati5660/bookstore/frontend:$IMAGE_TAG"
                 }
             }
@@ -52,7 +52,7 @@ pipeline {
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/nginx-php ./backend/"
-                    sh "docker tag akherati5660/bookstore/nginx-php:$IMAGE_TAG $REGISTRY/akherati5660/bookstore/nginx-php:$IMAGE_TAG"
+                    sh "docker tag akherati5660/bookstore/nginx-php $REGISTRY/akherati5660/bookstore/nginx-php:$IMAGE_TAG"
                     sh "docker push $REGISTRY/akherati5660/bookstore/nginx-php:$IMAGE_TAG"
                 }
             }
@@ -61,7 +61,7 @@ pipeline {
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/nginx-node ./frontend/"
-                    sh "docker tag akherati5660/bookstore/nginx-node:$IMAGE_TAG $REGISTRY/akherati5660/bookstore/nginx-node:$IMAGE_TAG"
+                    sh "docker tag akherati5660/bookstore/nginx-node $REGISTRY/akherati5660/bookstore/nginx-node:$IMAGE_TAG"
                     sh "docker push $REGISTRY/akherati5660/bookstore/nginx-node:$IMAGE_TAG"
                 }
             }
@@ -70,7 +70,7 @@ pipeline {
             steps {
                 script{
                     sh "docker build -t akherati5660/bookstore/cv ./CV"
-                    sh "docker tag akherati5660/bookstore/cv:$IMAGE_TAG $REGISTRY/akherati5660/bookstore/cv:$IMAGE_TAG"
+                    sh "docker tag akherati5660/bookstore/cv $REGISTRY/akherati5660/bookstore/cv:$IMAGE_TAG"
                     sh "docker push $REGISTRY/akherati5660/bookstore/cv:$IMAGE_TAG"
                 }
             }
