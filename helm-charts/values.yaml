@@ -5,7 +5,7 @@ images:
   database: "mysql"
   nginx_php: "registry.gitlab.com/akherati5660/bookstore/nginx-php"
   nginx_react: "registry.gitlab.com/akherati5660/bookstore/nginx-react"
-  phpmyadmin: "latest"
+  phpmyadmin: "phpmyadmin/phpmyadmin"
   elasticsearch: "latest"
   kibana: "latest"
 
@@ -27,7 +27,7 @@ replicas:
   database: 1
   nginx_php: 1
   nginx_react: 1
-  phpmyadmin: 0
+  phpmyadmin: 1
   elasticsearch: 0
   kibana: 0
 

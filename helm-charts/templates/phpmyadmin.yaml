@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: phpmyadmin
-          image: phpmyadmin/phpmyadmin:latest
+          image: "{{ .Values.images.phpmyadmin }}:{{ .Values.tag.phpmyadmin }}"
           ports:
             - containerPort: 80
           env:
