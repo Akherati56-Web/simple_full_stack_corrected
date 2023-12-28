@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/akherati56/simple_full_stack_corrected
     targetRevision: main
-    path: helm-charts/
+    path: helm-charts/resume/
   destination:
     server: https://kubernetes.default.svc
     namespace: resume
