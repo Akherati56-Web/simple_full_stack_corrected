@@ -60,9 +60,9 @@ pipeline {
         stage('nginx react') {
             steps {
                 script{
-                    sh "docker build -t akherati5660/bookstore/nginx-node ./frontend/"
-                    sh "docker tag akherati5660/bookstore/nginx-node $REGISTRY/akherati5660/bookstore/nginx-node:$IMAGE_TAG"
-                    sh "docker push $REGISTRY/akherati5660/bookstore/nginx-node:$IMAGE_TAG"
+                    sh "docker build -t akherati5660/bookstore/nginx-react ./frontend/"
+                    sh "docker tag akherati5660/bookstore/nginx-react $REGISTRY/akherati5660/bookstore/nginx-react:$IMAGE_TAG"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/nginx-react:$IMAGE_TAG"
                 }
             }
         }
