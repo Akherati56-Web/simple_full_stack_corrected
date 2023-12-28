@@ -18,8 +18,8 @@ spec:
       protocol: TCP
       targetPort: 9090
   selector:
-    app.kubernetes.io/component: prometheus-server
-    app.kubernetes.io/instance: prometheus-server
-    app.kubernetes.io/name: prometheus-server
+    app.kubernetes.io/component: server
+    app.kubernetes.io/instance: prometheus
+    app.kubernetes.io/name: prometheus
   sessionAffinity: None
   type: NodePort
