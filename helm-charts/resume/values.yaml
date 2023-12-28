@@ -21,7 +21,7 @@ tag:
   kibana: "latest"
 
 replicas:
-  cv: 0
+  cv: 1
   frontend: 0
   backend: 0
   database: 0
