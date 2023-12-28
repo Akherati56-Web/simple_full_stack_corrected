@@ -1,7 +1,7 @@
 function DashBoard() {
     return (
         <>
-            <h1 className='text-center'>DashBoard</h1>
+            <h1 className='text-center'>DashBoard Home</h1>
 
 
 
