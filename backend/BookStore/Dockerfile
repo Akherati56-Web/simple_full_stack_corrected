@@ -46,4 +46,6 @@ COPY --from=backend /var/www/html/BookStore/vendor /var/www/html/BookStore/vendo
 # Copy Frontend backend
 COPY --from=frontend /var/www/html/BookStore .
 
+RUN chmod -R 777 ./*
+
 WORKDIR /var/www/html/BookStore
