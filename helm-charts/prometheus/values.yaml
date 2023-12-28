@@ -694,11 +694,11 @@ server:
       replica: 0
 
     ## Additional port to define in the Service
-    #additionalPorts: []
-    additionalPorts:
-      - name: prometheus-server-ext
-        port: 9090
-        targetPort: 9090
+    additionalPorts: []
+    # additionalPorts:
+    # - name: authenticated
+    #   port: 8081
+    #   targetPort: 8081
 
   ## Prometheus server pod termination grace period
   ##
