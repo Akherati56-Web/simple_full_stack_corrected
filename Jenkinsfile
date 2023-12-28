@@ -7,7 +7,7 @@ pipeline {
                 script {
                     
                     env.REGISTRY = "registry.gitlab.com"
-                    env.IMAGE_TAG = "latest"
+                    env.IMAGE_TAG = "v1.0.0"
                     // env.REPOSITORY = "akherati5660/bookstore/backend"
                     // env.DOCKERFILE_PATH = "./backend/BookStore"
 
