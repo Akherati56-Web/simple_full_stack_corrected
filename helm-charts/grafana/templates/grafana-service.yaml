@@ -1,6 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
+  labels:
+    app.kubernetes.io/instance: grafana
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/version: 10.2.2
+    helm.sh/chart: grafana-7.0.19
   name: grafana-ext
   namespace: monitoring
 spec:
@@ -9,7 +15,6 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3000
-      
   selector:
-    app: grafana
-    namespace: monitoring
+    app.kubernetes.io/instance: grafana
+    app.kubernetes.io/name: grafana
