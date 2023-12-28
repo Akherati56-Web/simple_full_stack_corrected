@@ -14,10 +14,9 @@ metadata:
   namespace: kubernetes-dashboard
 spec:
   ports:
-    - name: http
+    - name: https
       port: 443
-      protocol: TCP
-      targetPort: http
+      targetPort: https
   selector:
     app.kubernetes.io/component: kubernetes-dashboard
     app.kubernetes.io/instance: kubernetes-dashboard
