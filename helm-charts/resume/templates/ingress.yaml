@@ -112,6 +112,17 @@ spec:
             name: grafana-ext
             port:
               number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-object
+  namespace: monitoring
+spec:
+  rules:
+  - host: prometheus.akherati5660.com
+    http:
+      paths:
       - path: /test
         pathType: Prefix
         backend:
