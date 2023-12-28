@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nginxreact
-          image: registry.gitlab.com/akherati5660/bookstore/nginx-react:latest
+          image: "{{ .Values.images.nginx_react }}:{{ .Values.tag.nginx_react }}"
           ports:
             - containerPort: 80
           imagePullPolicy: Always

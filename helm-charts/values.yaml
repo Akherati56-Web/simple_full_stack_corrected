@@ -1,3 +1,25 @@
+images:
+  cv: "registry.gitlab.com/akherati5660/bookstore/cv"
+  frontend: "registry.gitlab.com/akherati5660/bookstore/frontend"
+  backend: "registry.gitlab.com/akherati5660/bookstore/backend"
+  database: "mysql"
+  nginx_php: "registry.gitlab.com/akherati5660/bookstore/nginx-php"
+  nginx_react: "registry.gitlab.com/akherati5660/bookstore/nginx-react"
+  phpmyadmin: "latest"
+  elasticsearch: "latest"
+  kibana: "latest"
+
+tag:
+  cv: "v1.0.0"
+  frontend: "v1.0.0"
+  backend: "v1.0.0"
+  database: "5.7"
+  nginx_php: "v1.0.0"
+  nginx_react: "v1.0.0"
+  phpmyadmin: "latest"
+  elasticsearch: "latest"
+  kibana: "latest"
+
 replicas:
   cv: 1
   frontend: 1

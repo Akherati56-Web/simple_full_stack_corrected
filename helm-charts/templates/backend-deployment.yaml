@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: registry.gitlab.com/akherati5660/bookstore/backend:latest
+          image: "{{ .Values.images.backend }}:{{ .Values.tag.backend }}"
           ports:
             - containerPort: 9000
           imagePullPolicy: Always

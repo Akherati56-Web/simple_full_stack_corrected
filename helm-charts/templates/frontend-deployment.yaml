@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: registry.gitlab.com/akherati5660/bookstore/frontend:latest
+          image: "{{ .Values.images.frontend }}:{{ .Values.tag.frontend }}"
           ports:
             - containerPort: 3000
           imagePullPolicy: Always

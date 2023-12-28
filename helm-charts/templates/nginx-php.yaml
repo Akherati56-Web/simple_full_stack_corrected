@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nginxphp
-          image: registry.gitlab.com/akherati5660/bookstore/nginx-php:latest
+          image: "{{ .Values.images.nginx_php }}:{{ .Values.tag.nginx_php }}"
           ports:
             - containerPort: 80
           imagePullPolicy: Always

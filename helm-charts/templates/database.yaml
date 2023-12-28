@@ -28,7 +28,7 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pv-claim
       containers:
-        - image: mysql:5.7
+        - image: "{{ .Values.images.database }}:{{ .Values.tag.database }}"
           name: mysql
           volumeMounts:
           - name: mysql-persistent-storage
