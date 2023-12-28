@@ -115,7 +115,7 @@ spec:
   - host: prometheus.akherati5660.com
     http:
       paths:
-      - path: /test
+      - path: /
         pathType: Prefix
         backend:
           service:
