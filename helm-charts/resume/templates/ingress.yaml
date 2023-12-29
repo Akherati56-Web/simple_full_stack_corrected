@@ -85,7 +85,7 @@ metadata:
 spec:
   tls:
     - hosts:
-        - argocd.akherati5660.com
+        - akherati5660.com
       secretName: akherati5660
   rules:
   - host: argocd.akherati5660.com
