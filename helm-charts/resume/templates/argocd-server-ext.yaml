@@ -7,8 +7,6 @@ metadata:
     app.kubernetes.io/part-of: argocd
   name: argocd-server-ext
   namespace: argocd
-  resourceVersion: "114053"
-  uid: 0afc6b7e-e60f-474c-8221-f2976033aa5f
 spec:
   clusterIP: 10.98.54.214
   clusterIPs:
