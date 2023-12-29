@@ -83,10 +83,6 @@ metadata:
   name: ingress-object
   namespace: argocd
 spec:
-  tls:
-    - hosts:
-        - akherati5660.com
-      secretName: akherati5660
   rules:
   - host: argocd.akherati5660.com
     http:
