@@ -73,7 +73,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: kubernetes-dashboard
+            name: kubernetes-dashboard-disable
             port:
               number: 80
 ---
