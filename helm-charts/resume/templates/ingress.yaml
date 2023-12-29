@@ -83,6 +83,10 @@ metadata:
   name: ingress-object
   namespace: argocd
 spec:
+  tls:
+    - hosts:
+        - akherati5660.com
+      secretName: akherati5660
   rules:
   - host: argocd.akherati5660.com
     http:
@@ -93,7 +97,7 @@ spec:
           service:
             name: argocd-server-ext
             port:
-              number: 443
+              number: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
