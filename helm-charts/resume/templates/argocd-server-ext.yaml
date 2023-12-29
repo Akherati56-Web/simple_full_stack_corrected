@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/name: argocd-server
+    app.kubernetes.io/part-of: argocd
+  name: argocd-server-ext
+  namespace: argocd
+  resourceVersion: "114053"
+  uid: 0afc6b7e-e60f-474c-8221-f2976033aa5f
+spec:
+  clusterIP: 10.98.54.214
+  clusterIPs:
+  - 10.98.54.214
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: port-1
+    nodePort: 30184
+    port: 80
+    protocol: TCP
+    targetPort: 443
+  - name: port-2
+    nodePort: 32716
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app.kubernetes.io/name: argocd-server
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
