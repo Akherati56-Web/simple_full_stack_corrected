@@ -37,7 +37,7 @@ function SingleBook() {
                         </div>
                     </section>
 
-                    <div className='card col-xm-12 col-md-6 border-0 col m-0 p-0 '>
+                    <div className='card col-xs-12 col-md-6 border-0 col m-0 p-0 '>
                         <div className='card border-0 shadow-lg rounded-end-4'>
 
                             <div className="card-body">
