@@ -24,8 +24,8 @@ function SingleBook() {
     return (
         <>
             <div className='container'>
-                <div className='row'>
-                    <section className="col-xs-12 col-sm-12 col-md-6 m-0 p-0">
+                <div className='row p-2'>
+                    <section className="col-12 col-sm-12 col-md-6 m-0 p-0">
                         <div className="card border-0 shadow-sm">
                             <div className="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                 <img src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg" className="img-fluid rounded-start-3 shadow-sm" />
@@ -37,7 +37,7 @@ function SingleBook() {
                         </div>
                     </section>
 
-                    <div className='card col-xs-12 col-sm-12 col-md-6 border-0 col m-0 p-0 '>
+                    <div className='card col-12 col-sm-12 col-md-6 border-0 col m-0 p-0 '>
                         <div className='card border-0 shadow-lg rounded-end-4'>
 
                             <div className="card-body">
@@ -87,7 +87,7 @@ function SingleBook() {
                                     <a>slug:</a>
                                 </ul>
                                 <ul className="list-unstyled list-inline d-flex justify-content-between">
-                                    <li className='text-wrap' style={{ 'width': '15rem' }}>{data && data['slug']}</li>
+                                    <li className='text-wrap' style={{ 'width': '60%' }}>{data && data['slug']}</li>
                                     <li>
                                         <ul className='list-unstyled list-inline d-flex justify-content-between'>
                                             <li className="ps-4">25$</li>

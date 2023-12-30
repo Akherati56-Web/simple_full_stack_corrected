@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     env.REGISTRY = "registry.gitlab.com"
-                    env.IMAGE_TAG = "v1.0.4"
+                    env.IMAGE_TAG = "v1.0.5"
 
                     withCredentials([usernamePassword(credentialsId: 'gitlab-credentials', passwordVariable: 'REGISTRY_PASSWORD', usernameVariable: 'REGISTRY_USERNAME')]) {
                         sh "docker login -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD $REGISTRY"

@@ -10,12 +10,12 @@ images:
   kibana: "latest"
 
 tag:
-  cv: "v1.0.4"
-  frontend: "v1.0.4"
-  backend: "v1.0.4"
+  cv: "v1.0.5"
+  frontend: "v1.0.5"
+  backend: "v1.0.5"
   database: "5.7"
-  nginx_php: "v1.0.4"
-  nginx_react: "v1.0.4"
+  nginx_php: "v1.0.5"
+  nginx_react: "v1.0.5"
   phpmyadmin: "latest"
   elasticsearch: "latest"
   kibana: "latest"
