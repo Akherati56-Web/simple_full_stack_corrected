@@ -67,6 +67,9 @@ services:
     volumes:
       - ./websocket:/app
     working_dir: /app
+    depends_on:
+      - redis-database
+
 
   database-service:
     container_name: database-service
