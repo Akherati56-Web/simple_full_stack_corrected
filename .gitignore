@@ -7,3 +7,5 @@ database
 logs
 dokcer-compose.yml
 credentials.auto.tfvars
+.env
+websocket/node_modules/*

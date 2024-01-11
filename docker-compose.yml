@@ -47,7 +47,7 @@ services:
     depends_on:
       - nginx_php
       - nginx_react
-    volumes:  
+    volumes:
       - ./logs/nginx:/var/log/nginx
 
   backend-service:
@@ -70,19 +70,29 @@ services:
     depends_on:
       - redis-database
 
+  ai-service:
+    container_name: ai-service
+    build: ./ai-api
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./ai-api:/app
+    working_dir: /app
+    depends_on:
+      - mongo-database
 
   database-service:
     container_name: database-service
     image: mysql:5.7.37
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: "1234"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: bookstore
     ports:
       - "3309:3306"
     volumes:
       - ./database:/var/lib/mysql
-      
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -106,3 +116,28 @@ services:
     image: redis:latest
     ports:
       - "6379:6379"
+
+  mongo-database:
+    container_name: mongo-database
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+
+  postgres-database:
+    container_name: postgres-database
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: ${PG_ADMIN_PASS}
+
+  pgadmin-service:
+    container_name: pgadmin-service
+    image: dpage/pgadmin4:latest
+    ports:
+      - 86:80
+    environment:
+      PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASS}
+      PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
+    depends_on:
+      - postgres-database
