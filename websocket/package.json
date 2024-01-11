@@ -1,0 +1,14 @@
+{
+ "name": "node-websocket",
+ "version": "1.0.0",
+ "description": "WebSocket using Node.js",
+ "main": "server.js",
+ "scripts": {
+  "start": "node server.js"
+ },
+ "dependencies": {
+  "express": "^4.17.1",
+  "redis": "^4.6.12",
+  "ws": "^7.4.5"
+ }
+}

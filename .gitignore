@@ -6,3 +6,4 @@ logs/*
 database
 logs
 dokcer-compose.yml
+credentials.auto.tfvars
