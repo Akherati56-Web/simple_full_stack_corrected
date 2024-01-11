@@ -10,38 +10,37 @@ services:
     working_dir: /vite_project
     volumes:
       - ./frontend/vite_project:/vite_project
+    depends_on:
+      - backend-service
 
   nginx_react:
     container_name: nginx_react
     build: ./frontend
     command: nginx -g "daemon off;"
-    links:
-      - frontend-service
     ports:
       - "82:80"
     volumes:
       - ./logs/nginx-react:/var/log/nginx
       - ./frontend/vite_project:/var/www/html/vite_project
+    depends_on:
+      - frontend-service
 
   nginx_php:
     container_name: nginx_php
     build: ./backend
     command: nginx -g "daemon off;"
-    links:
-      - backend-service
     ports:
       - "81:80"
     volumes:
       - ./logs/nginx-php:/var/log/nginx
       - ./backend/BookStore:/var/www/html/BookStore
+    depends_on:
+      - backend-service
 
   nginx:
     container_name: nginx
     build: ./server
     command: nginx -g "daemon off;"
-    links:
-      - backend-service
-      - frontend-service
     ports:
       - "80:80"
     depends_on:
