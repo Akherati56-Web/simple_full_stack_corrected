@@ -7,35 +7,40 @@ const server = require('http').createServer(app);
 const wss = new WebSocket.Server({ server });
 
 const client = redis.createClient({
- host: 'redis-database',
- port: 6379,
+   host: 'redis-database',
+   port: 6379,
 });
+
+client.connect();
 
 client.on('connect', () => {
- console.log('Connected to Redis');
+   console.log('Connected to Redis');
 });
+
 
 client.on('error', (err) => {
- console.log('Redis error: ', err);
+   console.log('Redis error: ', err);
 });
 
+console.log(client);
+
+
 wss.on('connection', (ws) => {
- console.log('Client connected');
+   console.log('Client connected');
 
- ws.on('message', (message) => {
-    console.log(`Received: ${message}`);
+   ws.on('message', (message) => {
+      console.log(`Received12: ${message}`);
 
-    // Save the message to Redis
-    client.set('test', message);
+      client.set('message', message);
 
-    ws.send(`Hello, you sent -> ${message}`);
- });
+      ws.send(`Hello, you sent -> ${message}`);
+   });
 
- ws.on('close', () => {
-    console.log('Client disconnected');
- });
+   ws.on('close', () => {
+      console.log('Client disconnected');
+   });
 });
 
 server.listen(8080, () => {
- console.log('Server started on port 8080');
+   console.log('Server started on port 8080');
 });
