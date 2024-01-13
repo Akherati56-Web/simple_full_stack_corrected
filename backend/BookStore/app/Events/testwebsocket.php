@@ -30,7 +30,7 @@ class testwebsocket implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('testing'),
+            new Channel('message'),
         ];
     }
 }

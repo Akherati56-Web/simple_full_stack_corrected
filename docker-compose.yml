@@ -144,3 +144,24 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
     depends_on:
       - postgres-database
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express:latest
+    ports:
+      - 8089:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo-database
+      ME_CONFIG_MONGODB_PORT: 27017
+    depends_on:
+      - mongo-database
+
+  redisinsight:
+    container_name: redisinsight
+    image: redislabs/redisinsight:latest
+    ports:
+      - 8001:8001
+    depends_on:
+      - redis-database
+    volumes:
+      - ./redisinsight:/db

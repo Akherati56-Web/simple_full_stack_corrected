@@ -9,3 +9,4 @@ dokcer-compose.yml
 credentials.auto.tfvars
 .env
 websocket/node_modules/*
+redisinsight/*
