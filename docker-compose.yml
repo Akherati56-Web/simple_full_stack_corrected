@@ -46,6 +46,9 @@ services:
     depends_on:
       - nginx_php
       - nginx_react
+      - pgadmin-service
+      - ai-service
+      - websocket-service
     volumes:
       - ./logs/nginx:/var/log/nginx
 
@@ -79,6 +82,7 @@ services:
     working_dir: /app
     depends_on:
       - mongo-database
+      - postgres-database
 
   database-service:
     container_name: database-service

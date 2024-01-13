@@ -80,13 +80,13 @@ DATABASES = {
         'NAME': 'myproject',
         'USER': 'postgres',
         'PASSWORD': '1234',
-        'HOST': '127.0.0.1',
+        'HOST': 'postgres-database',
         'PORT': '5432',
     },
     'djongo': {
         'ENGINE': 'djongo',
         'NAME': 'bezkoder_db',
-        'HOST': '127.0.0.1',
+        'HOST': 'mongo-database',
         'PORT': 27017,
     },
     'sqllite': {
