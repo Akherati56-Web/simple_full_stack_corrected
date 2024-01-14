@@ -1,38 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongo_database
+  name: mongo-database
 spec:
-  replicas: { { .Values.replicas.mongo_database } }
+  replicas: { { .Values.replicas.mongo-database } }
   selector:
     matchLabels:
-      app: mongo_database
+      app: mongo-database
   template:
     metadata:
       labels:
-        app: mongo_database
+        app: mongo-database
     spec:
       containers:
-        - name: mongo_database
-          image: "{{ .Values.images.mongo_database }}:{{ .Values.tag.mongo_database }}"
+        - name: mongo-database
+          image: "{{ .Values.images.mongo-database }}:{{ .Values.tag.mongo-database }}"
           ports:
             - containerPort: 27017
           imagePullPolicy: Always
           resources:
             limits:
-              memory: { { .Values.memory.mongo_database } }
-              cpu: { { .Values.cpu.mongo_database } }
+              memory: { { .Values.memory.mongo-database } }
+              cpu: { { .Values.cpu.mongo-database } }
       imagePullSecrets:
         - name: key
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongo_database-service
+  name: mongo-database-service
 spec:
   selector:
-    app: mongo_database
+    app: mongo-database
   ports:
-    - name: mongo_database
+    - name: mongo-database
       port: 27017
       targetPort: 27017
