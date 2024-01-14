@@ -20,8 +20,6 @@ spec:
           env:
             - name: RIPROXYENABLE  
               value: "true"
-            - name: RILOGLEVEL
-              value: "DEBUG"
           imagePullPolicy: Always
           resources:
             limits:
