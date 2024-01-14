@@ -43,7 +43,7 @@ replicas:
   database: 1
   nginx_php: 1
   nginx_react: 1
-  phpmyadmin: 1
+  phpmyadmin: 0
   elasticsearch: 0
   kibana: 0
   websocket: 0
