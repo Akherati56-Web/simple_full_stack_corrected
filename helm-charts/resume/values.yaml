@@ -28,10 +28,10 @@ tag:
   phpmyadmin: "latest"
   elasticsearch: "latest"
   kibana: "latest"
-  redis-database: "latest"
-  mongo-database: "latest"
-  postgres-database: "latest"
-  mongo-express: "latest"
+  redis_database: "latest"
+  mongo_database: "latest"
+  postgres_database: "latest"
+  mongo_express: "latest"
   redisinsight: "latest"
 
 replicas:
@@ -46,10 +46,10 @@ replicas:
   kibana: 0
   websocket: 0
   ai: 0
-  redis-database: 0
-  mongo-database: 0
-  postgres-database: 0
-  mongo-express: 0
+  redis_database: 0
+  mongo_database: 0
+  postgres_database: 0
+  mongo_express: 0
   redisinsight: 0
 
 cpu:
@@ -64,10 +64,10 @@ cpu:
   kibana: "100m"
   websocket: "100m"
   ai: "100m"
-  redis-database: "100m"
-  mongo-database: "100m"
-  postgres-database: "100m"
-  mongo-express: "100m"
+  redis_database: "100m"
+  mongo_database: "100m"
+  postgres_database: "100m"
+  mongo_express: "100m"
   redisinsight: "100m"
 
 memory:
@@ -82,8 +82,8 @@ memory:
   kibana: "300Mi"
   websocket: "300Mi"
   ai: "300Mi"
-  redis-database: "300Mi"
-  mongo-database: "300Mi"
-  postgres-database: "300Mi"
-  mongo-express: "300Mi"
+  redis_database: "300Mi"
+  mongo_database: "300Mi"
+  postgres_database: "300Mi"
+  mongo_express: "300Mi"
   redisinsight: "300Mi"
