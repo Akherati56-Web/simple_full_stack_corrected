@@ -17,6 +17,9 @@ spec:
           image: "{{ .Values.images.redisinsight }}:{{ .Values.tag.redisinsight }}"
           ports:
             - containerPort: 8001
+          env:
+            - name: RIPROXYENABLE  
+              value: "true"
           imagePullPolicy: Always
           resources:
             limits:
