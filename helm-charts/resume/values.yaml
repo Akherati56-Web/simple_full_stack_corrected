@@ -53,7 +53,7 @@ replicas:
   postgres_database: 0
   mongo_express: 0
   redisinsight: 0
-  pgadmin: 0
+  pgadmin: 1
 
 cpu:
   cv: "100m"
