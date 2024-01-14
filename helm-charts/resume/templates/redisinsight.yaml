@@ -20,6 +20,8 @@ spec:
           env:
             - name: RIPROXYENABLE  
               value: "true"
+            - name: RITRUSTEDORIGINS  
+              value: "https://phpmyadmin.akherati5660.com/"
           imagePullPolicy: Always
           resources:
             limits:
