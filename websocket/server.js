@@ -11,7 +11,7 @@ const client = redis.createClient(
       // username: 'default', // use your Redis user. More info https://redis.io/docs/management/security/acl/
       // password: 'secret', // use your password here
       socket: {
-         host: 'redis-database',
+         host: 'redis-database-service',
          port: 6379,
          // tls: true,
          // key: readFileSync('./redis_user_private.key'),

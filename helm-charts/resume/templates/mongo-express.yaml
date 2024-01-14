@@ -19,7 +19,7 @@ spec:
             - containerPort: 8081
           env:
             - name: ME_CONFIG_MONGODB_SERVER
-              value: "mongo-database"
+              value: "mongo-database-service"
             - name: ME_CONFIG_MONGODB_PORT
               value: "27017"
           imagePullPolicy: Always
