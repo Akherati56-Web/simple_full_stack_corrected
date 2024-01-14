@@ -52,7 +52,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: redisinsight
+            name: redisinsight-service
             port:
               number: 80
 ---
