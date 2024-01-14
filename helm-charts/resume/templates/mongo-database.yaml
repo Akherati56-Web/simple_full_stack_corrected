@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mongo-database
 spec:
-  replicas: { { .Values.replicas.mongo_database } }
+  replicas: {{ .Values.replicas.mongo_database }}
   selector:
     matchLabels:
       app: mongo-database
@@ -20,8 +20,8 @@ spec:
           imagePullPolicy: Always
           resources:
             limits:
-              memory: { { .Values.memory.mongo_database } }
-              cpu: { { .Values.cpu.mongo_database } }
+              memory: {{ .Values.memory.mongo_database }}
+              cpu: {{ .Values.cpu.mongo_database }}
       imagePullSecrets:
         - name: key
 ---
