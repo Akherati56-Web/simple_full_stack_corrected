@@ -58,7 +58,7 @@ replicas:
 cpu:
   cv: "50m"
   frontend: "50m"
-  backend: "50m"
+  backend: "75m"
   database: "50m"
   nginx_php: "50m"
   nginx_react: "50m"
