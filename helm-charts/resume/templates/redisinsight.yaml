@@ -32,7 +32,9 @@ metadata:
 spec:
   selector:
     app: redisinsight
+  type: NodePort
   ports:
-    - name: redisinsight
-      port: 8001
-      targetPort: 8001
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30011

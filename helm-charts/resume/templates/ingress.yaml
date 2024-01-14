@@ -52,7 +52,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: pgadmin-service
+            name: redisinsight
             port:
               number: 80
 ---
