@@ -10,11 +10,11 @@ images:
   kibana: "latest"
   websocket: "registry.gitlab.com/akherati5660/bookstore/websocket"
   ai: "registry.gitlab.com/akherati5660/bookstore/ai"
-  redis-database:
-  mongo-database:
-  postgres-database:
-  mongo-express:
-  redisinsight:
+  redis-database: "redis"
+  mongo-database: "mongo"
+  postgres-database: "postgres"
+  mongo-express: "mongo-express"
+  redisinsight: "redislabs/redisinsight"
 
 tag:
   cv: "v1.0.6"
