@@ -20,10 +20,10 @@ spec:
           env:
             - name: RIPROXYENABLE  
               value: "true"
-          - name: RILOGLEVEL
-            value: "DEBUG"
-          - name: RITRUSTEDORIGINS
-            value: "phpmyadmin.akherati5660.com"
+            - name: RILOGLEVEL
+              value: "DEBUG"
+            - name: RITRUSTEDORIGINS
+              value: "phpmyadmin.akherati5660.com"
           imagePullPolicy: Always
           resources:
             limits:
