@@ -17,6 +17,9 @@ spec:
           image: "{{ .Values.images.postgres_database }}:{{ .Values.tag.postgres_database }}"
           ports:
             - containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              value: "1234"
           imagePullPolicy: Always
           resources:
             limits:

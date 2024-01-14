@@ -17,6 +17,11 @@ spec:
           image: "{{ .Values.images.mongo_express }}:{{ .Values.tag.mongo_express }}"
           ports:
             - containerPort: 8081
+          env:
+            - name: ME_CONFIG_MONGODB_SERVER
+              value: "mongo-database"
+            - name: ME_CONFIG_MONGODB_PORT
+              value: "27017"
           imagePullPolicy: Always
           resources:
             limits:
