@@ -37,23 +37,23 @@ tag:
   pgadmin: "latest"
 
 replicas:
-  cv: 1
-  frontend: 1
-  backend: 1
-  database: 1
-  nginx_php: 1
-  nginx_react: 1
-  phpmyadmin: 1
+  cv: 0
+  frontend: 0
+  backend: 0
+  database: 0
+  nginx_php: 0
+  nginx_react: 0
+  phpmyadmin: 0
   elasticsearch: 0
   kibana: 0
-  websocket: 1
-  ai: 1
-  redis_database: 1
-  mongo_database: 1
-  postgres_database: 1
-  mongo_express: 1
-  redisinsight: 1
-  pgadmin: 1
+  websocket: 0
+  ai: 0
+  redis_database: 0
+  mongo_database: 0
+  postgres_database: 0
+  mongo_express: 0
+  redisinsight: 0
+  pgadmin: 0
 
 cpu:
   cv: "50m"
