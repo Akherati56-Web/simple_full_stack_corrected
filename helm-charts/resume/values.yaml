@@ -46,13 +46,13 @@ replicas:
   phpmyadmin: 0
   elasticsearch: 0
   kibana: 0
-  websocket: 0
-  ai: 0
+  websocket: 1
+  ai: 1
   redis_database: 1
   mongo_database: 1
   postgres_database: 1
-  mongo_express: 1
-  redisinsight: 1
+  mongo_express: 0
+  redisinsight: 0
   pgadmin: 0
 
 cpu:
