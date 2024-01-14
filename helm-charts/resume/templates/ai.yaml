@@ -32,7 +32,9 @@ metadata:
 spec:
   selector:
     app: ai
+  type: NodePort
   ports:
-    - name: ai
+    - protocol: TCP
       port: 8088
       targetPort: 8088
+      nodePort: 30012
