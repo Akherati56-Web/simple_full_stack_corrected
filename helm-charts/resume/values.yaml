@@ -46,33 +46,33 @@ replicas:
   phpmyadmin: 0
   elasticsearch: 0
   kibana: 0
-  websocket: 0
-  ai: 0
-  redis_database: 0
-  mongo_database: 0
-  postgres_database: 0
-  mongo_express: 0
-  redisinsight: 0
-  pgadmin: 0
+  websocket: 1
+  ai: 1
+  redis_database: 1
+  mongo_database: 1
+  postgres_database: 1
+  mongo_express: 1
+  redisinsight: 1
+  pgadmin: 1
 
 cpu:
-  cv: "25m"
-  frontend: "25m"
-  backend: "25m"
-  database: "25m"
-  nginx_php: "25m"
-  nginx_react: "25m"
-  phpmyadmin: "25m"
-  elasticsearch: "25m"
-  kibana: "25m"
-  websocket: "25m"
-  ai: "25m"
-  redis_database: "25m"
-  mongo_database: "25m"
-  postgres_database: "25m"
-  mongo_express: "25m"
-  redisinsight: "25m"
-  pgadmin: "25m"
+  cv: "100m"
+  frontend: "100m"
+  backend: "100m"
+  database: "100m"
+  nginx_php: "100m"
+  nginx_react: "100m"
+  phpmyadmin: "100m"
+  elasticsearch: "100m"
+  kibana: "100m"
+  websocket: "100m"
+  ai: "100m"
+  redis_database: "100m"
+  mongo_database: "100m"
+  postgres_database: "100m"
+  mongo_express: "100m"
+  redisinsight: "100m"
+  pgadmin: "100m"
 
 memory:
   cv: "300Mi"
