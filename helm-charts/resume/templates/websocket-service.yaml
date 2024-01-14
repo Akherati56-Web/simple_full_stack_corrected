@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websocket
+spec:
+  replicas: {{ .Values.replicas.websocket }}
+  selector:
+    matchLabels:
+      app: websocket
+  template:
+    metadata:
+      labels:
+        app: websocket
+    spec:
+      containers:
+        - name: websocket
+          image: "{{ .Values.images.websocket }}:{{ .Values.tag.websocket }}"
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: {{ .Values.memory.websocket }}
+              cpu: {{ .Values.cpu.websocket }}
+      imagePullSecrets:
+        - name: key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: websocket-service
+spec:
+  selector:
+    app: websocket
+  ports:
+    - name: websocket
+      port: 8080
+      targetPort: 8080

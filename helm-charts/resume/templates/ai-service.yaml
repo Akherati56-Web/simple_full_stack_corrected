@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai
+spec:
+  replicas: {{ .Values.replicas.ai }}
+  selector:
+    matchLabels:
+      app: ai
+  template:
+    metadata:
+      labels:
+        app: ai
+    spec:
+      containers:
+        - name: ai
+          image: "{{ .Values.images.ai }}:{{ .Values.tag.ai }}"
+          ports:
+            - containerPort: 8088
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: {{ .Values.memory.ai }}
+              cpu: {{ .Values.cpu.ai }}
+      imagePullSecrets:
+        - name: key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-service
+spec:
+  selector:
+    app: ai
+  ports:
+    - name: ai
+      port: 8088
+      targetPort: 8088

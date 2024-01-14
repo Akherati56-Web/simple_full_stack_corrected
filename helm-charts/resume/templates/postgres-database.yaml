@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres_database
+spec:
+  replicas: {{ .Values.replicas.postgres_database }}
+  selector:
+    matchLabels:
+      app: postgres_database
+  template:
+    metadata:
+      labels:
+        app: postgres_database
+    spec:
+      containers:
+        - name: postgres_database
+          image: "{{ .Values.images.postgres_database }}:{{ .Values.tag.postgres_database }}"
+          ports:
+            - containerPort: 5432
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: {{ .Values.memory.postgres_database }}
+              cpu: {{ .Values.cpu.postgres_database }}
+      imagePullSecrets:
+        - name: key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres_database-service
+spec:
+  selector:
+    app: postgres_database
+  ports:
+    - name: postgres_database
+      port: 5432
+      targetPort: 5432

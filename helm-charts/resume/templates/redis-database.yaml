@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis_database
+spec:
+  replicas: {{ .Values.replicas.redis_database }}
+  selector:
+    matchLabels:
+      app: redis_database
+  template:
+    metadata:
+      labels:
+        app: redis_database
+    spec:
+      containers:
+        - name: redis_database
+          image: "{{ .Values.images.redis_database }}:{{ .Values.tag.redis_database }}"
+          ports:
+            - containerPort: 6379
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: {{ .Values.memory.redis_database }}
+              cpu: {{ .Values.cpu.redis_database }}
+      imagePullSecrets:
+        - name: key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis_database-service
+spec:
+  selector:
+    app: redis_database
+  ports:
+    - name: redis_database
+      port: 6379
+      targetPort: 6379

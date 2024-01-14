@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redisinsight
+spec:
+  replicas: {{ .Values.replicas.redisinsight }}
+  selector:
+    matchLabels:
+      app: redisinsight
+  template:
+    metadata:
+      labels:
+        app: redisinsight
+    spec:
+      containers:
+        - name: redisinsight
+          image: "{{ .Values.images.redisinsight }}:{{ .Values.tag.redisinsight }}"
+          ports:
+            - containerPort: 8001
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: {{ .Values.memory.redisinsight }}
+              cpu: {{ .Values.cpu.redisinsight }}
+      imagePullSecrets:
+        - name: key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redisinsight-service
+spec:
+  selector:
+    app: redisinsight
+  ports:
+    - name: redisinsight
+      port: 8001
+      targetPort: 8001

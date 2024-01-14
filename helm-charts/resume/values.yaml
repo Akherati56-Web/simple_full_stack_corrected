@@ -8,6 +8,13 @@ images:
   phpmyadmin: "phpmyadmin/phpmyadmin"
   elasticsearch: "latest"
   kibana: "latest"
+  websocket: "registry.gitlab.com/akherati5660/bookstore/websocket"
+  ai: "registry.gitlab.com/akherati5660/bookstore/ai"
+  redis_database:
+  mongo_database:
+  postgres_database:
+  mongo_express:
+  redisinsight:
 
 tag:
   cv: "v1.0.6"
@@ -16,9 +23,16 @@ tag:
   database: "5.7"
   nginx_php: "v1.0.6"
   nginx_react: "v1.0.6"
+  websocket: "v1.0.6"
+  ai: "v1.0.6"
   phpmyadmin: "latest"
   elasticsearch: "latest"
   kibana: "latest"
+  redis_database: "latest"
+  mongo_database: "latest"
+  postgres_database: "latest"
+  mongo_express: "latest"
+  redisinsight: "latest"
 
 replicas:
   cv: 1
@@ -30,6 +44,13 @@ replicas:
   phpmyadmin: 1
   elasticsearch: 0
   kibana: 0
+  websocket: 0
+  ai: 0
+  redis_database: 0
+  mongo_database: 0
+  postgres_database: 0
+  mongo_express: 0
+  redisinsight: 0
 
 cpu:
   cv: "100m"
@@ -41,6 +62,13 @@ cpu:
   phpmyadmin: "100m"
   elasticsearch: "100m"
   kibana: "100m"
+  websocket: "100m"
+  ai: "100m"
+  redis_database: "100m"
+  mongo_database: "100m"
+  postgres_database: "100m"
+  mongo_express: "100m"
+  redisinsight: "100m"
 
 memory:
   cv: "300Mi"
@@ -52,3 +80,10 @@ memory:
   phpmyadmin: "300Mi"
   elasticsearch: "300Mi"
   kibana: "300Mi"
+  websocket: "300Mi"
+  ai: "300Mi"
+  redis_database: "300Mi"
+  mongo_database: "300Mi"
+  postgres_database: "300Mi"
+  mongo_express: "300Mi"
+  redisinsight: "300Mi"
