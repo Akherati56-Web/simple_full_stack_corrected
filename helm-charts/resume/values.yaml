@@ -15,6 +15,7 @@ images:
   postgres-database: "postgres"
   mongo-express: "mongo-express"
   redisinsight: "redislabs/redisinsight"
+  pgadmin: "dpage/pgadmin4"
 
 tag:
   cv: "v1.0.6"
@@ -33,6 +34,7 @@ tag:
   postgres_database: "latest"
   mongo_express: "latest"
   redisinsight: "latest"
+  pgadmin: "latest"
 
 replicas:
   cv: 1
@@ -51,6 +53,7 @@ replicas:
   postgres_database: 0
   mongo_express: 0
   redisinsight: 0
+  pgadmin: 0
 
 cpu:
   cv: "100m"
@@ -69,6 +72,7 @@ cpu:
   postgres_database: "100m"
   mongo_express: "100m"
   redisinsight: "100m"
+  pgadmin: "100m"
 
 memory:
   cv: "300Mi"
@@ -87,3 +91,4 @@ memory:
   postgres_database: "300Mi"
   mongo_express: "300Mi"
   redisinsight: "300Mi"
+  pgadmin: "300Mi"

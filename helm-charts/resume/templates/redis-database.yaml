@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis_database
+  name: redis-database
 spec:
   replicas: {{ .Values.replicas.redis_database }}
   selector:
     matchLabels:
-      app: redis_database
+      app: redis-database
   template:
     metadata:
       labels:
-        app: redis_database
+        app: redis-database
     spec:
       containers:
-        - name: redis_database
+        - name: redis-database
           image: "{{ .Values.images.redis_database }}:{{ .Values.tag.redis_database }}"
           ports:
             - containerPort: 6379
@@ -28,11 +28,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis_database-service
+  name: redis-database-service
 spec:
   selector:
-    app: redis_database
+    app: redis-database
   ports:
-    - name: redis_database
+    - name: redis-database
       port: 6379
       targetPort: 6379
