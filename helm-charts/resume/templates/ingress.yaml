@@ -52,7 +52,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: phpmyadmin
+            name: pgadmin-service
             port:
               number: 80
 ---
