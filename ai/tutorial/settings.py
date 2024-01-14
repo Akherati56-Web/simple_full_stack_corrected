@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-opjajy)(5dan^tkn$hgf!^f$irh)i7u!-9e9bf)i_=7rjnc4k0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['phpmyadmin.akherati5660.com']
 
 
 # Application definition
