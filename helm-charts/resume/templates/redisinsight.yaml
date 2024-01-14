@@ -22,8 +22,6 @@ spec:
               value: "true"
             - name: RILOGLEVEL
               value: "DEBUG"
-            - name: RITRUSTEDORIGINS
-              value: "https://phpmyadmin.akherati5660.com"
           imagePullPolicy: Always
           resources:
             limits:
