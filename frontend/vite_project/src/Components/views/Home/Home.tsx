@@ -2,7 +2,7 @@ import SideMenu from './SideMenu';
 
 import useWebSocket from 'react-use-websocket';
 // const WS_URL = 'ws://websocket-service:8080';
-const WS_URL = 'ws://websocket-service:8080';
+const WS_URL = 'wss://websocket-service:8080';
 
 
 function Home() {
