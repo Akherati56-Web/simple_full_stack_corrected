@@ -25,6 +25,24 @@ pipeline {
                 }
             }
         }
+        stage('websocket') {
+            steps {
+                script{
+                    sh "docker build -t akherati5660/bookstore/websocket ./websocket"
+                    sh "docker tag akherati5660/bookstore/websocket $REGISTRY/akherati5660/bookstore/websocket:$IMAGE_TAG"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/websocket:$IMAGE_TAG"
+                }
+            }
+        }
+        stage('ai') {
+            steps {
+                script{
+                    sh "docker build -t akherati5660/bookstore/ai ./ai"
+                    sh "docker tag akherati5660/bookstore/ai $REGISTRY/akherati5660/bookstore/ai:$IMAGE_TAG"
+                    sh "docker push $REGISTRY/akherati5660/bookstore/ai:$IMAGE_TAG"
+                }
+            }
+        }
         stage('Frontend') {
             steps {
                 script{
