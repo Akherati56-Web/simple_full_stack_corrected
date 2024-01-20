@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-async function GetRequest() {
-  const URL = '/api/book';
+async function GetRequest(URL: string) {
   let getdata = null
 
   try {

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-opjajy)(5dan^tkn$hgf!^f$irh)i7u!-9e9bf)i_=7rjnc4k0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['phpmyadmin.akherati5660.com']
+ALLOWED_HOSTS = ['phpmyadmin.akherati5660.com', 'localhost']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'tutorial.urls'
@@ -80,13 +83,15 @@ DATABASES = {
         'NAME': 'myproject',
         'USER': 'postgres',
         'PASSWORD': '1234',
-        'HOST': 'postgres-database-service',
+        #'HOST': 'postgres-database-service',
+        'HOST': 'localhost',
         'PORT': '5432',
     },
     'djongo': {
         'ENGINE': 'djongo',
         'NAME': 'bezkoder_db',
-        'HOST': 'mongo-database-service',
+        #'HOST': 'mongo-database-service',
+        'HOST': 'localhost',
         'PORT': 27017,
     },
     'sqllite': {
@@ -140,3 +145,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
+
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost',
+]

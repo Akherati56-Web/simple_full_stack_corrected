@@ -1,5 +1,6 @@
 version: "3.8"
 services:
+
   frontend-service:
     container_name: frontend-service
     build:
@@ -70,7 +71,7 @@ services:
       - ./websocket:/app
     working_dir: /app
     depends_on:
-      - redis-database
+      - redis-database-service
 
   ai-service:
     container_name: ai-service
@@ -82,7 +83,7 @@ services:
     working_dir: /app
     depends_on:
       - mongo-database
-      - postgres-database
+      - postgres-database-service
 
   database-service:
     container_name: database-service
@@ -114,11 +115,21 @@ services:
       - database-service
     network_mode: "host"
 
-  redis-database:
-    container_name: redis-database
+  redis-database-service:
+    container_name: redis-database-service
     image: redis:latest
     ports:
       - "6379:6379"
+
+  redisinsight:
+    container_name: redisinsight
+    image: redislabs/redisinsight:latest
+    ports:
+      - 8001:8001
+    depends_on:
+      - redis-database-service
+    volumes:
+      - ./redisinsight:/db
 
   mongo-database:
     container_name: mongo-database
@@ -126,8 +137,19 @@ services:
     ports:
       - "27017:27017"
 
-  postgres-database:
-    container_name: postgres-database
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express:latest
+    ports:
+      - 8089:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo-database
+      ME_CONFIG_MONGODB_PORT: 27017
+    depends_on:
+      - mongo-database
+
+  postgres-database-service:
+    container_name: postgres-database-service
     image: postgres:latest
     ports:
       - 5432:5432
@@ -143,25 +165,4 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASS}
       PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
     depends_on:
-      - postgres-database
-
-  mongo-express:
-    container_name: mongo-express
-    image: mongo-express:latest
-    ports:
-      - 8089:8081
-    environment:
-      ME_CONFIG_MONGODB_SERVER: mongo-database
-      ME_CONFIG_MONGODB_PORT: 27017
-    depends_on:
-      - mongo-database
-
-  redisinsight:
-    container_name: redisinsight
-    image: redislabs/redisinsight:latest
-    ports:
-      - 8001:8001
-    depends_on:
-      - redis-database
-    volumes:
-      - ./redisinsight:/db
+      - postgres-database-service
