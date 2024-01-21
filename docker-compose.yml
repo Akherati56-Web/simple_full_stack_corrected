@@ -75,7 +75,7 @@ services:
 
   ai-service:
     container_name: ai-service
-    build: ./ai-api
+    build: ./ai
     ports:
       - "8088:8088"
     volumes:
