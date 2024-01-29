@@ -8,8 +8,8 @@ function FetchBooks() {
 
     useEffect(() => {
         GetRequest(URL).then(response => {
-            console.log('Data:', response.data.data);
-            setPosts(response.data.data)
+            console.log('Data:', response!.data.data);
+            setPosts(response!.data.data)
         }).catch(error => {
             console.error('Error:', error);
         });

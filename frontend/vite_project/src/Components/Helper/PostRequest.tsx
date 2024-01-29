@@ -1,4 +1,3 @@
-import React, { useRef, useEffect } from 'react';
 import axios from 'axios';
 
 const PostRequest = (baseURL = "/api/test") => {

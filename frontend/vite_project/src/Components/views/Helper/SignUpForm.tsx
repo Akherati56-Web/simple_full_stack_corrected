@@ -1,28 +1,31 @@
-import { useState } from 'react';
-import axios from 'axios';
-import config from '../../../config.json'
+import React, { useState } from 'react';
 import SignUpApi from '../../Helper/SignUpApi';
+
+interface FormData {
+  email: string;
+  password: string;
+}
 
 const SignUpForm = () => {
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState < FormData > ({
     // Initialize form fields here
     // For example:
     email: '',
     password: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({
+    setFormData((formData) => ({
       ...formData,
       [name]: value,
-    });
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    SignUpApi({ formData })
+    SignUpApi(formData)
   };
 
   return (

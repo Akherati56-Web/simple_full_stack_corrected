@@ -81,9 +81,6 @@ services:
     volumes:
       - ./ai:/app
     working_dir: /app
-    depends_on:
-      - mongo-database
-      - postgres-database-service
 
   database-service:
     container_name: database-service
@@ -131,8 +128,8 @@ services:
     volumes:
       - ./redisinsight:/db
 
-  mongo-database:
-    container_name: mongo-database
+  mongo-database-service:
+    container_name: mongo-database-service
     image: mongo:latest
     ports:
       - "27017:27017"
@@ -143,10 +140,10 @@ services:
     ports:
       - 8089:8081
     environment:
-      ME_CONFIG_MONGODB_SERVER: mongo-database
+      ME_CONFIG_MONGODB_SERVER: mongo-database-service
       ME_CONFIG_MONGODB_PORT: 27017
     depends_on:
-      - mongo-database
+      - mongo-database-service
 
   postgres-database-service:
     container_name: postgres-database-service
@@ -166,3 +163,15 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
     depends_on:
       - postgres-database-service
+
+  nginx-service:
+    container_name: nginx-service
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt

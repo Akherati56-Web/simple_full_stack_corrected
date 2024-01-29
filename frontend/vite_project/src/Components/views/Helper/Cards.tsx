@@ -1,9 +1,17 @@
-import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
-function Cards({ post, key }) {
+type Post = {
+    slug: string;
+};
+
+interface CardPost {
+    post: Post;
+    key: number;
+}
+
+function Cards({ post, key }: CardPost) {
     return (
-        <section className="mx-auto col-xs-12 col-md-6 col-xl-4 p-3">
+        <section className="mx-auto col-xs-12 col-md-6 col-xl-4 p-3" key={key}>
             <div className="card border-0 rounded-4 shadow-lg">
                 <div className="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg" className="img-fluid rounded-top-3 shadow-sm" />

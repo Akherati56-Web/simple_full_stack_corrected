@@ -1,13 +1,19 @@
 @import 'bootstrap/dist/css/bootstrap.css';
-.img-size{
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+.img-size {
     height: 250px;
     width: 100%;
     background-color: grey;
-    color  : white;
+    color: white;
     text-align: center;
 }
+
 body {
     padding: 0;
     margin: 0;
 }
-
