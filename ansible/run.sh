@@ -1,4 +1,5 @@
 #!/bin/bash
 echo $(pwd)
-ansible-playbook ./playbooks/qemu-guest-agent.yml --user ali -i ./inventory/hosts
+#ansible-playbook -v ./playbooks/qemu-guest-agent.yml --user root -i ./inventory/hosts
+ansible-playbook -vvv ./playbooks/test.yml --user root -i ./inventory/hosts
 

@@ -1,0 +1,6 @@
+resource "proxmox_lxc" "clone" {
+  target_node = "proxmox"
+  hostname    = "lxc-clone"
+  #id of lxc container to clone
+  clone       = "104"
+}

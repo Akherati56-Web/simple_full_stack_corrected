@@ -47,6 +47,7 @@ const Navbar = () => {
                                 </li>
                             }
                         </ul>
+
                         {!isLoggedIn &&
                             <ul className="navbar-nav ms-auto">
                                 <button type="button" className="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#LoginModal">

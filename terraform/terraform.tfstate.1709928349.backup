@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.6.3",
-  "serial": 108,
+  "serial": 66,
   "lineage": "179c16f6-9f10-6ef1-a106-362e265da59c",
   "outputs": {},
   "resources": [
@@ -41,10 +41,10 @@
               {
                 "bridge": "vmbr0",
                 "firewall": false,
-                "gw": "192.168.122.100",
+                "gw": "",
                 "gw6": "",
-                "hwaddr": "BC:24:11:F5:F3:B8",
-                "ip": "192.168.122.90/24",
+                "hwaddr": "BC:24:11:AC:4D:B5",
+                "ip": "dhcp",
                 "ip6": "",
                 "mtu": "",
                 "name": "eth0",
@@ -91,7 +91,7 @@
     {
       "mode": "managed",
       "type": "proxmox_lxc",
-      "name": "basic3",
+      "name": "basic2",
       "provider": "provider[\"registry.terraform.io/telmate/proxmox\"]",
       "instances": [
         {
@@ -113,7 +113,7 @@
             "hagroup": "",
             "hastate": "",
             "hookscript": "",
-            "hostname": "lxc-basic3",
+            "hostname": "lxc-basic2",
             "id": "proxmox/lxc/106",
             "ignore_unpack_errors": false,
             "lock": "",
@@ -122,15 +122,30 @@
             "nameserver": "",
             "network": [
               {
-                "bridge": "vmbr1",
+                "bridge": "vmbr0",
                 "firewall": false,
-                "gw": "10.10.10.1",
+                "gw": "",
                 "gw6": "",
-                "hwaddr": "BC:24:11:17:FC:64",
-                "ip": "10.10.10.2/24",
+                "hwaddr": "BC:24:11:E7:0F:40",
+                "ip": "192.100.1.1/32",
                 "ip6": "",
                 "mtu": "",
                 "name": "eth0",
+                "rate": 0,
+                "tag": 0,
+                "trunks": "",
+                "type": "veth"
+              },
+              {
+                "bridge": "vmbr0",
+                "firewall": false,
+                "gw": "",
+                "gw6": "",
+                "hwaddr": "BC:24:11:B7:3F:39",
+                "ip": "dhcp",
+                "ip6": "",
+                "mtu": "",
+                "name": "eth2",
                 "rate": 0,
                 "tag": 0,
                 "trunks": "",

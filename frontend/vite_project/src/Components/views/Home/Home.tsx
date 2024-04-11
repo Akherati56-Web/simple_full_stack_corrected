@@ -28,6 +28,10 @@ function Home() {
         <div className="container-fluid">
             <div className="row flex-nowrap">
                 <div className="container mx-auto">
+                    <button class="tw-bg-gray-300 tw-hover:tw-bg-gray-400 tw-text-gray-800 tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-inline-flex tw-items-center">
+                        <svg class="tw-fill-current tw-w-4 tw-h-4 tw-mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg>
+                        <span>Download</span>
+                    </button>
                     <div className="blur-none ...">
                         <div className="tw-border-b-2 tw-border-indigo-600 ...">temp</div>
                     </div>
@@ -38,6 +42,9 @@ function Home() {
                         <div>01</div>
                         <div>02</div>
                         <div>03</div>
+                        <div>04</div>
+                        <div>05</div>
+
                     </div>
 
 

@@ -1,0 +1,93 @@
+{
+  "version": 4,
+  "terraform_version": "1.6.3",
+  "serial": 91,
+  "lineage": "179c16f6-9f10-6ef1-a106-362e265da59c",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "proxmox_lxc",
+      "name": "basic",
+      "provider": "provider[\"registry.terraform.io/telmate/proxmox\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arch": "amd64",
+            "bwlimit": 0,
+            "clone": null,
+            "clone_storage": null,
+            "cmode": "tty",
+            "console": true,
+            "cores": 0,
+            "cpulimit": 0,
+            "cpuunits": 1024,
+            "description": "",
+            "features": [],
+            "force": false,
+            "full": null,
+            "hagroup": "",
+            "hastate": "",
+            "hookscript": "",
+            "hostname": "lxc-basic",
+            "id": "proxmox/lxc/104",
+            "ignore_unpack_errors": false,
+            "lock": "",
+            "memory": 512,
+            "mountpoint": [],
+            "nameserver": "",
+            "network": [
+              {
+                "bridge": "vmbr0",
+                "firewall": false,
+                "gw": "",
+                "gw6": "",
+                "hwaddr": "BC:24:11:AC:4D:B5",
+                "ip": "dhcp",
+                "ip6": "",
+                "mtu": "",
+                "name": "eth0",
+                "rate": 0,
+                "tag": 0,
+                "trunks": "",
+                "type": "veth"
+              }
+            ],
+            "onboot": false,
+            "ostemplate": "local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst",
+            "ostype": "ubuntu",
+            "password": "12345",
+            "pool": null,
+            "protection": false,
+            "restore": false,
+            "rootfs": [
+              {
+                "size": "5G",
+                "storage": "local-lvm",
+                "volume": "local-lvm:vm-104-disk-0"
+              }
+            ],
+            "searchdomain": "",
+            "ssh_public_keys": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFH7AfPHFV+CgD+eEBtMGwftzYAYc6gfxvAajSK5uaOyCq3jp8oyBNQSjSRl5iecUN2Q9KhM2Ckxgc5UhhnLJ+Dk4klP9X2c2gLimpG2SK6GLVuKFmExKdaMUAOJNQsP2AhuoKFj/1je9aDjKLRLZHTmhHvB+AsoHhL8JO2QUjZ7cMTe3PqwlUIenlbI5Sjz/GETONhxOjYOKoieC/NnGNKnmq8bGE8nQDrKwcvKUMdIkVzLzgQYn7d+PGRaea1jmWCGPucU/HTy94Cqwn1YAB3WP0XPR5difCE8mypnLWCCVoQ8FHV0HMN5aXDUt4fgDwvf+zfL2LhJix9kIa8hSc6v0iwmxBGmhtnrzmSfp4y04xRVJfpdwaOlNsv//yp/DzG4rIp4qrQtKRieW410NaRx0ypfGbGC7/jYwh1zpwsk+jtDL7r4epZGO+TK0hpGFuru5V33XllHl6mXRz+xF0KVKnrzKuuyjxo/8xkEN0yi0rpPsqlHMbfK6e/BjzjKU= akherati@akherati\n",
+            "start": false,
+            "startup": "",
+            "swap": 512,
+            "tags": "",
+            "target_node": "proxmox",
+            "template": false,
+            "timeouts": null,
+            "tty": 2,
+            "unique": false,
+            "unprivileged": false,
+            "unused": [],
+            "vmid": 0
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlZmF1bHQiOjMwMDAwMDAwMDAwMCwiZGVsZXRlIjoxODAwMDAwMDAwMDAsInJlYWQiOjE4MDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
