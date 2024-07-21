@@ -5,6 +5,10 @@ const WS_URL = "ws://localhost:8080";
 import { useEffect } from 'react';
 import GetRequest from '../../Helper/GetRequest'
 
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from '../../../actions/counterActions';
+import { AppState } from '../../../reducers';
+
 function Home() {
 
     const URL = 'http://localhost:8088/users/?format=api';
@@ -22,6 +26,9 @@ function Home() {
             console.log('WebSocket connection established.');
         }
     });
+
+    const count = useSelector((state: AppState) => state.counter.count);
+    const dispatch = useDispatch();
 
 
     return (
@@ -46,7 +53,13 @@ function Home() {
                         <div>05</div>
 
                     </div>
+                    test
 
+                    <div>
+                        <h1>Count: {count}</h1>
+                        <button onClick={() => dispatch(increment())} >Increment</button>
+                        <button onClick={() => dispatch(decrement())}>Decrement</button>
+                    </div>
 
                 </div>
 
