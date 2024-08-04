@@ -1,5 +1,5 @@
 // src/reducers/counterReducer.ts
-import { INCREMENT, DECREMENT, CounterActionTypes } from '../actions/types';
+import { INCREMENT, DECREMENT, CounterActionTypes } from "../actions/types";
 
 interface CounterState {
   count: number;

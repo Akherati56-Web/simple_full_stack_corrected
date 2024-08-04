@@ -1,28 +1,25 @@
-import DashBoard from './Components/views/DashBoard/DashBoard';
-import SingleBook from './Components/views/DashBoard/SingleBook';
-import Content from './Components/views/Home/Content';
-import Home from './Components/views/Home/Home'
-import Layout from './Components/views/Home/Layout';
 import './style.scss';
+import DefRoutes from './routes/index';
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<App />); 
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// src/App.tsx 
 
+import { useSelector } from 'react-redux';
+import { AppState } from './reducers';
 
 export default function App() {
+  const theme = useSelector((state: AppState) => state.theme.theme);
+
+  const appStyle = {
+    background: theme === 'light' ? '#ffffff' : '#333333',
+    color: theme === 'light' ? '#000000' : '#ffffff',
+  };
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="content" element={<Content />} />
-          <Route path="dashboard" element={<DashBoard />} />
-          <Route path="singlebook" element={<SingleBook />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+
+    <div style={appStyle}>
+      <DefRoutes />
+    </div>
   );
-}
-
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<App />);
+}; 

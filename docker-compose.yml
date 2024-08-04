@@ -84,8 +84,7 @@ services:
 
   database-service:
     container_name: database-service
-    image: mysql:5.7.37
-    restart: always
+    image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: bookstore
@@ -175,3 +174,18 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+
+  vault:
+    image: hashicorp/vault
+    container_name: vault
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "root"
+      VAULT_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"
+    volumes:
+      - ./vault/config:/vault/config
+      - ./vault/data:/vault/data
+    command: "server -dev -dev-root-token-id=root"
+    cap_add:
+      - IPC_LOCK

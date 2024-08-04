@@ -1,7 +1,8 @@
-#### 0.0.0 (2024-04-25)
+#### 0.0.0 (2024-08-03)
 
 ##### Other Changes
 
+*  increase and decrese global value in store of redux at Home.tsx (21b95fd1)
 * akherati5660/bookstore (6e9166d0)
 * akherati5660/bookstore (c2752e44)
 * akherati5660/bookstore (a01c089b)

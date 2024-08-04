@@ -7,8 +7,14 @@ use Illuminate\Http\Request;
 
 class WsController extends Controller
 {
-    public function test() {
-        event(new testwebsocket );
+    public function test()
+    {
+        event(new testwebsocket);
 
+    }
+
+    public function db()
+    {
+        return 'name';
     }
 }

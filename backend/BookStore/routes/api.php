@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,8 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware(['auth:san
 // Route for testing authentication
 Route::post('/test', [UserController::class, 'test'])->middleware(['auth:sanctum']);
 
+
 Route::get("/ws", [WsController::class, 'test']);
+Route::get("/db", [WsController::class, 'db']);
+
+Route::post('/upload', [FileUploadController::class, 'upload']);

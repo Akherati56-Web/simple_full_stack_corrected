@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import { VitePWA } from 'vite-plugin-pwa'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       devOptions: {
-        enabled: true
+        enabled: true,
         /* other options */
       },
       manifest: {
@@ -17,11 +17,22 @@ export default defineConfig({
             src: "/icons/512.png",
             sizes: "512x512",
             type: "image/png",
-            purpose: "any maskable"
-          }
-        ]
-      }
-    })
+            purpose: "any maskable",
+          },
+        ],
+      },
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.origin === self.location.origin,
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "my-cache",
+            },
+          },
+        ],
+      },
+    }),
   ],
   server: {
     host: true,
@@ -29,7 +40,7 @@ export default defineConfig({
     // Thanks @sergiomoura for the window fix
     // add the next lines if you're using windows and hot reload doesn't work
     watch: {
-      usePolling: true
-    }
-  }
-})
+      usePolling: true,
+    },
+  },
+});
