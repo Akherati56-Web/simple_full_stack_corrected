@@ -61,6 +61,8 @@ services:
     volumes:
       - ./backend/BookStore:/var/www/html/BookStore
     working_dir: /var/www/html/BookStore
+    depends_on:
+      - database-service
 
   websocket-service:
     container_name: websocket-service

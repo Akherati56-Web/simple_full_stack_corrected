@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\WsController;
-
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,11 +24,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Route for book resource
 Route::resource('/book', BookController::class);
+Route::resource('/order', OrderController::class);
+
 
 // Routes for user signup and login
 Route::post('/signup', [UserController::class, 'signup']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout', [UserController::class, 'logout'])->middleware(['auth:sanctum']);
+Route::get("/orders/{id}", [UserController::class, 'getorders']);
 
 // Route for testing authentication
 Route::post('/test', [UserController::class, 'test'])->middleware(['auth:sanctum']);

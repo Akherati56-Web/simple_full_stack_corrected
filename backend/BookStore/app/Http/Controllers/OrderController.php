@@ -12,7 +12,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return Order::all();
     }
 
     /**
@@ -36,7 +36,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        // 
     }
 
     /**

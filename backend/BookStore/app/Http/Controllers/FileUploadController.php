@@ -19,8 +19,6 @@ class FileUploadController extends Controller
             $filePath = $file->store('uploads', 'public');
 
             return response()->json([
-                'message' => 'File uploaded successfully',
-                'file_path' => $filePath,
             ], 200);
         }
 
