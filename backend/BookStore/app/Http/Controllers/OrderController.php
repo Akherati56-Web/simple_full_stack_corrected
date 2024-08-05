@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -61,5 +62,14 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+    public function getorders($id) {
+        $data = User::findorfail($id)->orders()->with('books')->get()->pluck('books')->flatten();
+        // $data = User::findorfail($id)->orders()->with('books')->get()->pluck('books')->flatten()->unique('id');
+        
+        return [
+            "status" => 400,
+            "data" => $data
+        ];
     }
 }

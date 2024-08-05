@@ -79,13 +79,4 @@ class UserController extends Controller
         // Return an array containing the user's ID, email, and whether their token has the 'server' scope
         return ['can_edit' => $data, 'user_id' => $user_id, 'user_email' => $user['email']];
     }
-
-    public function getorders($id) {
-
-        $data = User::findorfail($id)->orders()->get();
-        return [
-            "status" => 400,
-            "data" => $data
-        ];
-    }
 }

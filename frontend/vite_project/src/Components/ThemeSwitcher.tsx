@@ -14,8 +14,8 @@ const ThemeSwitcher: React.FC = () => {
     };
 
     return (
-        <button onClick={toggleTheme}>
-            Switch to {theme === 'light' ? 'dark' : 'light'} mode
+        <button onClick={toggleTheme} className="px-4 py-2 bg-gray-800 text-white rounded transition-colors duration-500">
+            {theme === 'light' ? 'dark' : 'light'}
         </button>
     );
 };

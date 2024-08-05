@@ -1,16 +1,23 @@
 import axios from 'axios';
-import { useState } from 'react';
-
+import React, { ChangeEvent, useState } from 'react';
 import Uploadfile from '../services/Api/Uploadfile'
 
-const FileUpload = () => {
-    const [file, setFile] = useState(null);
+type Filestate = File | null
 
-    const handleFileChange = (event) => {
-        setFile(event.target.files[0]);
+const FileUpload: React.FC = () => {
+    const [file, setFile] = useState<Filestate>(null);
+
+    const handleFileChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        const selectedFile = event.target.files ? event.target.files[0] : null;
+
+        setFile(selectedFile);
     };
-    const handleUploadfile=()=>{
-        Uploadfile(file)
+    const handleUploadfile = (): void => {
+        if (file) {
+            Uploadfile(file);
+        } else {
+            console.error('No file selected');
+        }
     }
 
     return (

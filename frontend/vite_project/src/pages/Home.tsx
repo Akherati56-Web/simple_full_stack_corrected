@@ -5,11 +5,11 @@ const WS_URL = "ws://localhost:8080";
 import { useEffect } from 'react';
 import GetRequest from '../services/DataBase/GetRequest'
 
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from '../actions/counterActions';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { increment, decrement } from '../actions/counterActions';
 
-import { AppState } from '../reducers';
-import FileUpload from '../Components/UploadFile';
+// import { AppState } from '../reducers';
+
 
 function Home() {
 
@@ -29,8 +29,8 @@ function Home() {
         }
     });
 
-    const count = useSelector((state: AppState) => state.counter.count);
-    const dispatch = useDispatch();
+    // const count = useSelector((state: AppState) => state.counter.count);
+    // const dispatch = useDispatch();
 
 
     // const handleIncrement = () => {
@@ -45,8 +45,7 @@ function Home() {
     return (
         <div className="container-fluid">
             <div className="row flex-nowrap">
-                <div className="container mx-auto">y
-                    <FileUpload />
+                <div className="container mx-auto">
                     {/* <div>
                         <h1>Count: {count}</h1>
                         <button onClick={handleIncrement} className="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Increment</button>

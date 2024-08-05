@@ -31,7 +31,7 @@ Route::resource('/order', OrderController::class);
 Route::post('/signup', [UserController::class, 'signup']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout', [UserController::class, 'logout'])->middleware(['auth:sanctum']);
-Route::get("/orders/{id}", [UserController::class, 'getorders']);
+Route::get("/orders/{id}", [OrderController::class, 'getorders']);
 
 // Route for testing authentication
 Route::post('/test', [UserController::class, 'test'])->middleware(['auth:sanctum']);

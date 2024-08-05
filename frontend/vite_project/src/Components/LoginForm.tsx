@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import LoginApi from '../services/Api/LoginApi';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginRequest, loginSuccess, loginFailure, logout } from '../actions/counterActions';
 
 interface FormData {
   email: string;
@@ -8,7 +10,9 @@ interface FormData {
 
 const LoginForm = () => {
 
-  const [formData, setFormData] = useState < FormData > ({
+  const dispatch = useDispatch();
+
+  const [formData, setFormData] = useState<FormData>({
     email: '',
     password: '',
   });
@@ -24,6 +28,8 @@ const LoginForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     LoginApi(formData)
+    dispatch(loginSuccess(formData.email, 'test'));
+    // dispatch(loginFailure('Invalid credentials'));
 
   }
 

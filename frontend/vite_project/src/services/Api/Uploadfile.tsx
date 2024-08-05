@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-interface File {
-    file: file;
-}
-
 const Uploadfile = (file: File) => {
     if (!file) return;
 
@@ -17,7 +13,7 @@ const Uploadfile = (file: File) => {
             },
         });
 
-        if (response.status === 200) {
+        if (response.ok) {
             console.log('File uploaded successfully');
         } else {
             console.error('File upload failed');
