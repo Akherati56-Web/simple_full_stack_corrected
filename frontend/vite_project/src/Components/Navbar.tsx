@@ -15,7 +15,6 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-
         dispatch(logout());
         navigate('/');
     };
@@ -61,8 +60,8 @@ const Navbar = () => {
                             <button type="button" className="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#SignUp">
                                 SignUp
                             </button>
-                            <input className="form-control me-2 m-1" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success m-1" type="submit">Search</button>
+                            {/* <input className="form-control me-2 m-1" type="search" placeholder="Search" aria-label="Search" />
+                            <button className="btn btn-outline-success m-1" type="submit">Search</button> */}
 
                         </ul>
                     }

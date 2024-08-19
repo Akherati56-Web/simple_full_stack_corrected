@@ -6,7 +6,6 @@ import SingleBook from '../pages/SingleBook';
 import Content from '../Components/Content';
 import Layout from '../Components/Layout';
 import ThemeSwitcher from '../Components/ThemeSwitcher';
-import LoginComponent from '../Components/LoginComponent';
 
 
 function DefRoutes() {
@@ -19,7 +18,6 @@ function DefRoutes() {
                     <Route path="dashboard" element={<DashBoard />} />
                     <Route path="singlebook" element={<SingleBook />} />
                     <Route path="theme" element={<ThemeSwitcher />} />
-                    <Route path="logincomp" element={<LoginComponent />} />
                 </Route>
             </Routes>
         </BrowserRouter>

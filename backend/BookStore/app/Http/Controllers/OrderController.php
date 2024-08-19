@@ -64,6 +64,8 @@ class OrderController extends Controller
         //
     }
     public function getorders($id) {
+        // dd(User::findorfail($id)->orders()->with('books')->first());
+        
         $data = User::findorfail($id)->orders()->with('books')->get()->pluck('books')->flatten();
         // $data = User::findorfail($id)->orders()->with('books')->get()->pluck('books')->flatten()->unique('id');
         

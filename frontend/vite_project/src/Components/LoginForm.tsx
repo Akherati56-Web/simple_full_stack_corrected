@@ -2,6 +2,7 @@ import { useState } from 'react';
 import LoginApi from '../services/Api/LoginApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequest, loginSuccess, loginFailure, logout } from '../actions/counterActions';
+import { useNavigate } from 'react-router-dom';
 
 interface FormData {
   email: string;
@@ -11,6 +12,7 @@ interface FormData {
 const LoginForm = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState<FormData>({
     email: '',
@@ -29,6 +31,7 @@ const LoginForm = () => {
     e.preventDefault();
     LoginApi(formData)
     dispatch(loginSuccess(formData.email, 'test'));
+    navigate('/dashboard');
     // dispatch(loginFailure('Invalid credentials'));
 
   }
