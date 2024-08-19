@@ -2,27 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\FileUploadRequest;
+// use Illuminate\Http\Request;
 
 class FileUploadController extends Controller
 {
-    public function upload(Request $request)
+    public function upload(FileUploadRequest $request)
     {
-        // Validate the request
-        $request->validate([
-            'file' => 'required|file|mimes:jpeg,png,pdf|max:2048', // Adjust validation rules as needed
-        ]);
 
-        // Handle the file upload
-        if ($request->hasFile('file')) {
+        try {
             $file = $request->file('file');
-            $filePath = $file->store('uploads', 'public');
-
-            return response()->json([
-                'status' => 'success'
-            ]);
+            $path = $file->store('uploads', 'public');
+    
+            return response()->json(['path' => $path], 201);
+        }catch (\Exception $e) {
+            return response()->json(['error' => 'File upload failed: ' . $e->getMessage()], 500);
         }
-
-        return response()->json(['message' => 'No file uploaded'], 400);
     }
 }
