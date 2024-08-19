@@ -10,3 +10,4 @@ credentials.auto.tfvars
 .env
 websocket/node_modules/*
 redisinsight/*
+backend/BookStore/storage/*
