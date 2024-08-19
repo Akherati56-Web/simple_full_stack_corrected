@@ -6,22 +6,24 @@ const Uploadfile = (file: File) => {
     const formData = new FormData();
     formData.append('file', file);
 
-    try {
-        const response = axios.post('/api/upload', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
+    const response = axios.post('/api/upload', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    }).then((res) => {
+        console.log('File uploaded successfully');
+    })
+        .catch((err) => {
+            // Handle validation errors or other errors
+            if (err.response && err.response.status === 422) {
+                console.error(err.response.data.errors);
+            } else {
+                console.error('File upload failed');
+            }
         });
-
-        if (response.ok) {
-            console.log('File uploaded successfully');
-        } else {
-            console.error('File upload failed');
-        }
-    } catch (error) {
-        console.error('Error uploading file:', error);
-    }
 };
+
+
 
 
 export default Uploadfile;
