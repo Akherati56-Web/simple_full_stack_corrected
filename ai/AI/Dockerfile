@@ -13,6 +13,7 @@ RUN pip install django-cors-headers
 RUN pip install djongo
 
 
+
 COPY . .
 
 EXPOSE 8088

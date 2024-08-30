@@ -1,4 +1,5 @@
 import useWebSocket from 'react-use-websocket';
+import AIUploadFile from '../Components/AIUploadFile ';
 // const WS_URL = 'ws://websocket-service:8080';
 const WS_URL = "ws://localhost:8080";
 
@@ -15,6 +16,8 @@ function AI() {
                 <div className="container mx-auto">
                     <div>
                         AI
+
+                        <AIUploadFile />
                     </div>
                 </div>
             </div>

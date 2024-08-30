@@ -11,3 +11,6 @@ credentials.auto.tfvars
 websocket/node_modules/*
 redisinsight/*
 backend/BookStore/storage/*
+*.pyc
+__pycache__/
+.fuse_hidden*

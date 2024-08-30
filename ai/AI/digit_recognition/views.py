@@ -30,8 +30,8 @@ class DigitRecognitionView(View):
             image = image.resize((28, 28))  # Resize to match model input
             image = np.array(image).astype(np.float32) / 255.0  # Normalize
 
-            # Reshape to match the expected input shape: [28, 28, 1]
-            image = image.reshape((28, 28, 1))
+            # Reshape to match the expected input shape: [1, 28, 28]
+            image = image.reshape((1, 28, 28))
 
             # Set the tensor to point to the input data to be inferred
             self.interpreter.set_tensor(self.input_details[0]['index'], image)
