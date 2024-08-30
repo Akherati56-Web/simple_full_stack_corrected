@@ -1,18 +1,15 @@
 version: "3.8"
 services:
-
-  frontend-service:
-    container_name: frontend-service
-    build:
-      context: ./frontend/vite_project
-      dockerfile: Dockerfile
+  nginx_ai:
+    container_name: nginx_ai
+    build: ./frontend
     ports:
-      - 3000:3000
-    working_dir: /vite_project
+      - "83:80"
     volumes:
-      - ./frontend/vite_project:/vite_project
+      - ./logs/nginx-ai:/var/log/nginx
+      - ./ai/ai:/var/www/html/ai
     depends_on:
-      - backend-service
+      - ai-service
 
   nginx_react:
     container_name: nginx_react
@@ -64,6 +61,19 @@ services:
     depends_on:
       - database-service
 
+  frontend-service:
+    container_name: frontend-service
+    build:
+      context: ./frontend/vite_project
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    working_dir: /vite_project
+    volumes:
+      - ./frontend/vite_project:/vite_project
+    depends_on:
+      - backend-service
+
   websocket-service:
     container_name: websocket-service
     build: ./websocket
@@ -77,11 +87,11 @@ services:
 
   ai-service:
     container_name: ai-service
-    build: ./ai
+    build: ./ai/ai
     ports:
       - "8088:8088"
     volumes:
-      - ./ai:/app
+      - ./ai/ai:/app
     working_dir: /app
 
   database-service:
