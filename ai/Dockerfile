@@ -1,4 +1,4 @@
 # docker/nginx/Dockerfile
 FROM nginx:1.20
 ADD AI.nginx.conf /etc/nginx/conf.d/default.conf
-COPY ai /var/www/html/ai
+COPY AI /var/www/html/AI

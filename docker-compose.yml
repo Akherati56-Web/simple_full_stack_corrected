@@ -85,11 +85,11 @@ services:
 
   ai-service:
     container_name: ai-service
-    build: ./ai/ai
+    build: ./ai/AI
     ports:
       - "8088:8088"
     volumes:
-      - ./ai/ai:/app
+      - ./ai/AI:/app
     working_dir: /app
 
   database-service:
