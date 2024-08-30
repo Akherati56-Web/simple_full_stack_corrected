@@ -42,11 +42,11 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - nginx_php
+      # - nginx_php
       - nginx_react
-      - pgadmin-service
-      - ai-service
-      - websocket-service
+      # - pgadmin-service
+      - nginx_ai
+      # - websocket-service
     volumes:
       - ./logs/nginx:/var/log/nginx
 
@@ -71,8 +71,6 @@ services:
     working_dir: /vite_project
     volumes:
       - ./frontend/vite_project:/vite_project
-    depends_on:
-      - backend-service
 
   websocket-service:
     container_name: websocket-service
