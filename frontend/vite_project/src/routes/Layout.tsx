@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 // import 'bootstrap/dist/js/bootstrap.min.js'
-import Footer from './Footer';
+import Footer from '../Components/Footer';
 import Navbar from './Navbar'
-import SignUpForm from './SignUpForm';
-import LoginForm from './LoginForm';
+import SignUpForm from '../Components/SignUpForm';
+import LoginForm from '../Components/LoginForm';
 
 const Layout = () => {
   return (

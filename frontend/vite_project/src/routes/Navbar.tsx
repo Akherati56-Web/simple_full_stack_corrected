@@ -10,7 +10,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const auth = useSelector((state: RootState) => state.auth);
+    // const auth = useSelector((state: RootState) => state.auth);
+    const auth = useSelector((state: AppState) => state.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -34,6 +35,9 @@ const Navbar = () => {
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link to="/" className="nav-link">Home</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/ai" className="nav-link">AI</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/content" className="nav-link">Content</Link>

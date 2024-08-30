@@ -10,6 +10,7 @@ RUN pip install markdown
 RUN pip install django-filter
 RUN pip install psycopg2-binary
 RUN pip install django-cors-headers
+RUN pip install djongo
 
 
 COPY . .
