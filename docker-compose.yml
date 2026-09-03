@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   nginx_ai:
     container_name: nginx_ai
@@ -42,10 +41,10 @@ services:
     ports:
       - "80:80"
     depends_on:
-      # - nginx_php
+      - nginx_php
       - nginx_react
       # - pgadmin-service
-      - nginx_ai
+      # - nginx_ai
       # - websocket-service
     volumes:
       - ./logs/nginx:/var/log/nginx

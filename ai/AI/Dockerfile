@@ -1,10 +1,9 @@
-FROM python:latest
+FROM django:latest
 
 WORKDIR /app
-COPY requirements.txt ./
+# COPY requirements.txt ./
 # RUN pip install -r requirements.txt
 
-RUN pip install Django
 RUN pip install djangorestframework
 RUN pip install markdown
 RUN pip install django-filter
